@@ -192,8 +192,23 @@
 
 
 
+
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+  const langButtons = document.querySelectorAll("button[onclick^='setLang']");
+  const themeButton = document.getElementById("themeToggle");
+
+  langButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lang = btn.getAttribute("onclick").match(/'(.+)'/)[1];
+      setLang(lang);
+    });
+  });
+
+  if (themeButton) {
+    themeButton.addEventListener("click", toggleTheme);
+  }
+
 
 
 const translations = {

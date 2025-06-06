@@ -2,176 +2,149 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lorenz X Ops</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Cairo', sans-serif;
-      background: #fff8f0;
-      color: #333;
+      background: #fefefe;
+      color: #222;
     }
+
     header {
-      background: linear-gradient(90deg, #ff6f00, #ff9800);
-      color: white;
-      padding: 30px 20px;
+      background: #ff6f00;
+      padding: 40px 20px;
       text-align: center;
-      font-size: 34px;
-      font-weight: bold;
+      color: white;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+
     .intro {
       background: #fff3e0;
-      padding: 20px;
-      text-align: center;
-      font-size: 18px;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
       padding: 30px 20px;
-      max-width: 1200px;
-      margin: auto;
+      font-size: 20px;
+      text-align: center;
+      color: #444;
     }
+
+    .section-title {
+      text-align: center;
+      color: #ff6f00;
+      margin-top: 40px;
+      font-size: 26px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
     .card {
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      border-radius: 12px;
       overflow: hidden;
+      width: 300px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
     .card img {
       width: 100%;
       height: auto;
-      display: block;
     }
+
     .card a {
-      background-color: #ff6f00;
-      color: white;
-      padding: 12px;
-      text-align: center;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 0 0 10px 10px;
-    }
-    .contact {
-      text-align: center;
-      background: #fff3e0;
-      padding: 30px 20px;
+      display: block;
+      padding: 14px;
       font-size: 16px;
-      margin-top: 30px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(135deg, #ff9800, #ff5722);
+      color: white;
+      text-decoration: none;
+      border-radius: 0 0 12px 12px;
+      transition: all 0.3s ease;
     }
+
+    .card a:hover {
+      background: linear-gradient(135deg, #ff7043, #e64a19);
+      transform: scale(1.01);
+    }
+
+    .contact {
+      background: #fff3e0;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 40px;
+      color: #444;
+    }
+
     .contact h3 {
       color: #e65100;
       margin-bottom: 10px;
+      font-size: 22px;
     }
+
+    .contact p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+
     .contact a {
       color: #e65100;
       font-weight: bold;
       text-decoration: none;
     }
+
     footer {
       background: #ffe0b2;
       text-align: center;
-      padding: 15px;
+      padding: 16px;
       font-size: 14px;
       color: #555;
     }
-  
-    
-    .order-button {
-      width: 100%;
-      padding: 14px 0;
-      font-size: 16px;
-      font-family: 'Cairo', sans-serif;
-      font-weight: 700;
-      border: none;
-      border-radius: 0 0 10px 10px;
-      text-align: center;
-      background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: white;
-      text-decoration: none;
-      display: block;
-      transition: all 0.3s ease-in-out;
-    }
-    .order-button:hover {
-      background: linear-gradient(135deg, #ff7043, #e64a19);
-      transform: scale(1.02);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-      display: block;
-      margin: 0;
-      padding: 12px;
-      background: linear-gradient(90deg, #ff9800, #ff6f00);
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 0 0 10px 10px;
-      text-decoration: none;
-      text-align: center;
-      transition: background 0.3s ease;
-    }
-    .order-button:hover {
-      background: linear-gradient(90deg, #ffa726, #e65100);
-      cursor: pointer;
-    }
-</style>
+  </style>
 </head>
 <body>
 
 <header>Lorenz X Ops</header>
 
 <div class="intro">
-  متجر متخصص ببيع بطاقات الرصيد الخاصة بالترويج على مواقع التواصل الاجتماعي.
+  متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي. باقات متنوعة وأسعار مناسبة.
 </div>
 
-<div class="gallery">
-  <div class="card">
-    <img src="5usd.jpg" alt="باقة 5 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 5 دولار">طلب باقة 5 دولار</a>
-  </div>
-  <div class="card">
-    <img src="10usd.jpg" alt="باقة 10 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 10 دولار">طلب باقة 10 دولار</a>
-  </div>
-  <div class="card">
-    <img src="15usd.jpg" alt="باقة 15 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 15 دولار">طلب باقة 15 دولار</a>
-  </div>
-  <div class="card">
-    <img src="20usd.jpg" alt="باقة 20 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 20 دولار">طلب باقة 20 دولار</a>
-  </div>
-  <div class="card">
-    <img src="25usd.jpg" alt="باقة 25 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 25 دولار">طلب باقة 25 دولار</a>
-  </div>
-  <div class="card">
-    <img src="30usd.jpg" alt="باقة 30 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 30 دولار">طلب باقة 30 دولار</a>
-  </div>
-  <div class="card">
-    <img src="40usd.jpg" alt="باقة 40 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 40 دولار">طلب باقة 40 دولار</a>
-  </div>
-  <div class="card">
-    <img src="50usd.jpg" alt="باقة 50 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 50 دولار">طلب باقة 50 دولار</a>
-  </div>
-  <div class="card">
-    <img src="50usd_2.jpg" alt="باقة 50 دولار إضافية">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 50 دولار إضافية">طلب باقة 50 دولار إضافية</a>
-  </div>
-  <div class="card">
-    <img src="100usd.jpg" alt="باقة 100 دولار">
-    <a class="order-button" href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 100 دولار">طلب باقة 100 دولار</a>
-  </div>
+<h2 class="section-title">باقات الرصيد</h2>
+
+<div class="products">
+  <div class="card"><img src="5usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 5 دولار">طلب باقة 5 دولار</a></div>
+  <div class="card"><img src="10usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 10 دولار">طلب باقة 10 دولار</a></div>
+  <div class="card"><img src="15usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 15 دولار">طلب باقة 15 دولار</a></div>
+  <div class="card"><img src="20usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 20 دولار">طلب باقة 20 دولار</a></div>
+  <div class="card"><img src="25usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 25 دولار">طلب باقة 25 دولار</a></div>
+  <div class="card"><img src="30usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 30 دولار">طلب باقة 30 دولار</a></div>
+  <div class="card"><img src="40usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 40 دولار">طلب باقة 40 دولار</a></div>
+  <div class="card"><img src="50usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 50 دولار">طلب باقة 50 دولار</a></div>
+  <div class="card"><img src="50usd_2.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 50 دولار إضافية">طلب باقة 50 دولار إضافية</a></div>
+  <div class="card"><img src="100usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 100 دولار">طلب باقة 100 دولار</a></div>
 </div>
 
 <div class="contact">

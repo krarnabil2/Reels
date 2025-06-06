@@ -7,313 +7,161 @@
   <title>Lorenz X Ops</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
     body {
       margin: 0;
       font-family: 'Cairo', sans-serif;
-      background: #fefefe;
+      background: #fffdf9;
       color: #222;
+      transition: background 0.3s, color 0.3s;
     }
-
     header {
       background: #ff6f00;
-      padding: 40px 20px;
+      padding: 30px 20px;
       text-align: center;
       color: white;
-      font-size: 36px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 32px;
+      font-weight: bold;
     }
-
+    .controls {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .controls button {
+      margin: 5px;
+      padding: 8px 14px;
+      font-family: Cairo, sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #ffcc80;
+      color: #333;
+    }
+    .controls button:hover {
+      background-color: #ffb74d;
+    }
     .intro {
       background: #fff3e0;
-      padding: 30px 20px;
-      font-size: 20px;
+      padding: 20px;
       text-align: center;
-      color: #444;
+      font-size: 18px;
     }
-
     .section-title {
       text-align: center;
       color: #ff6f00;
-      margin-top: 40px;
-      font-size: 26px;
+      font-size: 24px;
+      margin-top: 30px;
     }
-
     .products {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      justify-items: center;
-      gap: 24px;
-      max-width: 1200px;
+      gap: 20px;
+      max-width: 1000px;
       margin: 30px auto;
       padding: 0 20px;
     }
-
     .card {
       background: white;
       border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       overflow: hidden;
-      width: 300px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
     .card img {
       width: 100%;
-      height: auto;
-    }
-
-    
-    .card a {
-      background: white;
-      color: #ff6f00;
-      border-top: 1px solid #eee;
-
       display: block;
-      padding: 14px;
-      font-size: 16px;
-      font-weight: bold;
+    }
+    .card a {
       text-align: center;
-      background: linear-gradient(135deg, #ff9800, #ff5722);
-      color: white;
+      padding: 12px;
       text-decoration: none;
-      border-radius: 0 0 12px 12px;
+      font-weight: bold;
+      color: #ff6f00;
+      background: white;
+      border-top: 1px solid #eee;
       transition: all 0.3s ease;
     }
-
-    
     .card a:hover {
       background: #fff8f0;
       color: #e65100;
-      transform: scale(1.01);
-      box-shadow: 0 3px 10px rgba(255, 111, 0, 0.1);
-
-      background: linear-gradient(135deg, #ff7043, #e64a19);
-      transform: scale(1.01);
     }
-
     .contact {
       background: #fff3e0;
       text-align: center;
-      padding: 40px 20px;
-      margin-top: 40px;
-      color: #444;
-    }
-
-    .contact h3 {
-      color: #e65100;
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .contact p {
-      margin: 6px 0;
+      padding: 30px 20px;
       font-size: 16px;
     }
-
+    .contact h3 {
+      color: #e65100;
+    }
     .contact a {
       color: #e65100;
       font-weight: bold;
       text-decoration: none;
     }
-
     footer {
       background: #ffe0b2;
       text-align: center;
-      padding: 16px;
+      padding: 15px;
       font-size: 14px;
       color: #555;
     }
-  
-@media (max-width: 768px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr) !important;
-    padding: 10px;
-  }
-  .card {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
-.controls button {
-  margin: 5px;
-  padding: 8px 14px;
-  font-family: Cairo, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 6px;
-  border: none;
-  background-color: #ffcc80;
-  color: #333;
-}
-.controls button:hover {
-  background-color: #ffb74d;
-}
-
-/* Dark Mode */
-body.dark {
-  background-color: #1c1c1c;
-  color: #eee;
-}
-body.dark .card {
-  background-color: #2a2a2a;
-  color: white;
-}
-body.dark .card a {
-  background-color: #333;
-  color: #ffa726;
-}
-body.dark .card a:hover {
-  background-color: #444;
-  color: #ffcc80;
-}
-body.dark header {
-  background: #333;
-}
-body.dark .intro,
-body.dark .contact,
-body.dark footer {
-  background-color: #2a2a2a;
-  color: #ccc;
-}
-</style>
+    body.dark {
+      background: #121212;
+      color: #f1f1f1;
+    }
+    body.dark header { background: #2c2c2c; }
+    body.dark .intro,
+    body.dark .contact,
+    body.dark footer { background: #1f1f1f; color: #ccc; }
+    body.dark .card { background: #222; }
+    body.dark .card a { background: #222; color: #ffa726; }
+    body.dark .card a:hover { background: #2a2a2a; color: #ffd180; }
+  </style>
 </head>
 <body>
 
-
-
-
 <header id="site-title">Lorenz X Ops</header>
 
-<div class="controls" style="text-align:center; margin: 20px 0;">
+<div class="controls">
   <button class="lang-btn" data-lang="ar">🇮🇶 عربي</button>
   <button class="lang-btn" data-lang="en">🇬🇧 English</button>
   <button class="lang-btn" data-lang="ku">🇹🇯 کوردی</button>
   <button id="themeToggle">🌙 الوضع الليلي</button>
 </div>
 
-
-<div class="controls" style="text-align:center; margin: 20px 0;">
-  <button class="lang-btn" data-lang="ar">🇮🇶 عربي</button>
-  <button class="lang-btn" data-lang="en">🇬🇧 English</button>
-  <button class="lang-btn" data-lang="ku">🇹🇯 کوردی</button>
-  <button id="themeToggle">🌙 الوضع الليلي</button>
+<div class="intro" id="intro-text">
+  متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي.
 </div>
 
-
-
-
-<div class="intro">
-  متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي. باقات متنوعة وأسعار مناسبة.
-</div>
-
-<h2 class="section-title">باقات الرصيد</h2>
+<h2 class="section-title" id="section-title">باقات الرصيد</h2>
 
 <div class="products">
-  <div class="card"><img src="5usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 5 دولار">طلب باقة 5 دولار</a></div>
-  <div class="card"><img src="10usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 10 دولار">طلب باقة 10 دولار</a></div>
-  <div class="card"><img src="15usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 15 دولار">طلب باقة 15 دولار</a></div>
-  <div class="card"><img src="20usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 20 دولار">طلب باقة 20 دولار</a></div>
-  <div class="card"><img src="25usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 25 دولار">طلب باقة 25 دولار</a></div>
-  <div class="card"><img src="30usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 30 دولار">طلب باقة 30 دولار</a></div>
-  <div class="card"><img src="40usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 40 دولار">طلب باقة 40 دولار</a></div>
-  <div class="card"><img src="50usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 50 دولار">طلب باقة 50 دولار</a></div>
-  <div class="card"><img src="50usd_2.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 50 دولار إضافية">طلب باقة 50 دولار إضافية</a></div>
-  <div class="card"><img src="100usd.jpg"><a href="https://wa.me/9647736578905?text=طلب باقة 100 دولار">طلب باقة 100 دولار</a></div>
+  <div class="card"><img src="5usd.jpg"><a href="#">طلب باقة 5 دولار</a></div>
+  <div class="card"><img src="10usd.jpg"><a href="#">طلب باقة 10 دولار</a></div>
+  <div class="card"><img src="15usd.jpg"><a href="#">طلب باقة 15 دولار</a></div>
+  <div class="card"><img src="20usd.jpg"><a href="#">طلب باقة 20 دولار</a></div>
+  <div class="card"><img src="25usd.jpg"><a href="#">طلب باقة 25 دولار</a></div>
+  <div class="card"><img src="30usd.jpg"><a href="#">طلب باقة 30 دولار</a></div>
+  <div class="card"><img src="40usd.jpg"><a href="#">طلب باقة 40 دولار</a></div>
+  <div class="card"><img src="50usd.jpg"><a href="#">طلب باقة 50 دولار</a></div>
+  <div class="card"><img src="50usd_2.jpg"><a href="#">طلب باقة 50 دولار إضافية</a></div>
+  <div class="card"><img src="100usd.jpg"><a href="#">طلب باقة 100 دولار</a></div>
 </div>
 
 <div class="contact">
-  <h3>معلومات الاتصال</h3>
+  <h3 id="contact-title">معلومات الاتصال</h3>
   <p>📞 07736578905</p>
   <p>📧 lorenzxops@gmail.com</p>
   <p>📍 بغداد - القاهرة</p>
-  <p>💬 <a href="https://wa.me/9647736578905">تواصل معنا على واتساب</a></p>
+  <p><a href="https://wa.me/9647736578905" target="_blank">تواصل على واتساب</a></p>
 </div>
 
-<footer>
-  © 2024 Lorenz X Ops - جميع الحقوق محفوظة
-</footer>
-
-
-
+<footer>© 2024 Lorenz X Ops - جميع الحقوق محفوظة</footer>
 
 <script>
-
-document.addEventListener("DOMContentLoaded", function() {
-  const translations = {
-    ar: {
-      sitename: "لورينز اكس",
-      title: "باقات الرصيد",
-      intro: "متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي.",
-      contact: "معلومات الاتصال",
-      request: "طلب باقة"
-    },
-    en: {
-      sitename: "Lorenz X Ops",
-      title: "Credit Packages",
-      intro: "A professional store specializing in selling credit cards for social media promotion.",
-      contact: "Contact Info",
-      request: "Order Package"
-    },
-    ku: {
-      sitename: "لورنز ئێکس",
-      title: "Pakêtakanî بڕی پارە",
-      intro: "فرۆشگای پەڕەیەکی پەروەردەی خەریکی فرۆشتنی pakêt bo تۆڕە کۆمەڵایەتییەکانە.",
-      contact: "زانیاری پەیوەندی",
-      request: "داواکردنی pakêt"
-    }
-  };
-
-  document.querySelectorAll('.lang-btn').forEach(button => {
-    button.addEventListener('click', () => {
-      const lang = button.dataset.lang;
-      document.querySelector('.intro').innerText = translations[lang].intro;
-      document.querySelector('.section-title').innerText = translations[lang].title;
-      document.querySelector('.contact h3').innerText = translations[lang].contact;
-      document.getElementById('site-title').innerText = translations[lang].sitename;
-      document.querySelectorAll('.card a').forEach(btn => {
-        let txt = btn.getAttribute('href').split("text=")[1] || "";
-        let val = decodeURIComponent(txt).match(/باقة ([0-9]+)/);
-        let num = val ? val[1] : "";
-        btn.innerText = translations[lang].request + " " + num + " دولار";
-      });
-    });
-  });
-
-  document.getElementById("themeToggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
-    const isDark = document.body.classList.contains("dark");
-    document.getElementById("themeToggle").innerText = isDark ? "☀️ الوضع النهاري" : "🌙 الوضع الليلي";
-  });
-
-  // تم حذف أزرار اللغات والوضع الليلي
-  const langButtons = document.querySelectorAll("button[onclick^='setLang']");
-  const themeButton = document.getElementById("themeToggle");
-
-  langButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const lang = btn.getAttribute("onclick").match(/'(.+)'/)[1];
-      setLang(lang);
-    });
-  });
-
-  if (themeButton) {
-    themeButton.addEventListener("click", toggleTheme);
-  }
-
-
-
 const translations = {
   ar: {
     sitename: "لورينز اكس",
@@ -325,153 +173,39 @@ const translations = {
   en: {
     sitename: "Lorenz X Ops",
     title: "Credit Packages",
-    intro: "A professional store specializing in selling credit cards for social media promotion.",
-    contact: "Contact Info",
+    intro: "A professional store selling top-up packages for social media promotion.",
+    contact: "Contact Information",
     request: "Order Package"
   },
   ku: {
     sitename: "لورنز ئێکس",
-    title: "Pakêtakanî بڕی پارە",
-    intro: "فرۆشگای پەڕەیەکی پەروەردەی خەریکی فرۆشتنی pakêt bo تۆڕە کۆمەڵایەتییەکانە.",
-    contact: "زانیاری پەیوەندی",
-    request: "داواکردنی pakêt"
-  }
-};
-  ar: {
-    title: "باقات الرصيد",
-    intro: "متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي.",
-    contact: "معلومات الاتصال",
-    request: "طلب باقة"
-  },
-  en: {
-    title: "Credit Packages",
-    intro: "A professional store specializing in selling credit cards for social media promotion.",
-    contact: "Contact Info",
-    request: "Order Package"
-  },
-  ku: {
-    title: "Pakêtakanî بڕی پارە",
-    intro: "فرۆشگای پەڕەیەکی پەروەردەی خەریکی فرۆشتنی pakêt bo پەروەردەی تۆڕە کۆمەڵایەتییەکانە.",
+    title: "Pakêtakan",
+    intro: "فرۆشگای تایبەتی pakêt bo تۆڕە کۆمەڵایەتییەکان.",
     contact: "زانیاری پەیوەندی",
     request: "داواکردنی pakêt"
   }
 };
 
-function setLang(lang) {
-  document.querySelector('.intro').innerText = translations[lang].intro;
-  document.querySelector('.section-title').innerText = translations[lang].title;
-  document.getElementById('site-title').innerText = translations[lang].sitename;
-  document.querySelector('.contact h3').innerText = translations[lang].contact;
-  document.querySelectorAll('.card a').forEach(btn => {
-    let txt = btn.getAttribute('href').split("text=")[1] || "";
-    let val = decodeURIComponent(txt).match(/باقة ([0-9]+)/);
-    let num = val ? val[1] : "";
-    btn.innerText = translations[lang].request + " " + num + " دولار";
+document.querySelectorAll(".lang-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const lang = btn.dataset.lang;
+    const t = translations[lang];
+    document.getElementById("site-title").innerText = t.sitename;
+    document.getElementById("intro-text").innerText = t.intro;
+    document.getElementById("section-title").innerText = t.title;
+    document.getElementById("contact-title").innerText = t.contact;
+    document.querySelectorAll(".card a").forEach(a => {
+      const num = a.innerText.match(/([0-9]+)/);
+      a.innerText = t.request + (num ? " " + num[1] + " دولار" : "");
+    });
   });
-}
+});
 
-function toggleTheme() {
+document.getElementById("themeToggle").addEventListener("click", () => {
   document.body.classList.toggle("dark");
-  const toggleBtn = document.getElementById("themeToggle");
-  if (document.body.classList.contains("dark")) {
-    toggleBtn.innerText = "☀️ الوضع النهاري";
-  } else {
-    toggleBtn.innerText = "🌙 الوضع الليلي";
-  }
-}
-
+  const isDark = document.body.classList.contains("dark");
+  document.getElementById("themeToggle").innerText = isDark ? "☀️ الوضع النهاري" : "🌙 الوضع الليلي";
 });
 </script>
-
-
-<style>
-/* حذف أزرار اللغات */
-.controls button { display: none; }
-  margin: 5px;
-  padding: 8px 14px;
-  font-family: Cairo, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 6px;
-  border: none;
-  background-color: #ffcc80;
-  color: #333;
-}
-.controls button:hover {
-  background-color: #ffb74d;
-}
-
-/* Dark Mode */
-body.dark {
-  background-color: #1c1c1c;
-  color: #eee;
-}
-body.dark .card {
-  background-color: #2a2a2a;
-  color: white;
-}
-body.dark .card a {
-  background-color: #333;
-  color: #ffa726;
-}
-body.dark .card a:hover {
-  background-color: #444;
-  color: #ffcc80;
-}
-body.dark header {
-  background: #333;
-}
-body.dark .intro,
-body.dark .contact,
-body.dark footer {
-  background-color: #2a2a2a;
-  color: #ccc;
-}
-
-.controls button {
-  margin: 5px;
-  padding: 8px 14px;
-  font-family: Cairo, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 6px;
-  border: none;
-  background-color: #ffcc80;
-  color: #333;
-}
-.controls button:hover {
-  background-color: #ffb74d;
-}
-
-/* Dark Mode */
-body.dark {
-  background-color: #1c1c1c;
-  color: #eee;
-}
-body.dark .card {
-  background-color: #2a2a2a;
-  color: white;
-}
-body.dark .card a {
-  background-color: #333;
-  color: #ffa726;
-}
-body.dark .card a:hover {
-  background-color: #444;
-  color: #ffcc80;
-}
-body.dark header {
-  background: #333;
-}
-body.dark .intro,
-body.dark .contact,
-body.dark footer {
-  background-color: #2a2a2a;
-  color: #ccc;
-}
-</style>
 </body>
-
 </html>

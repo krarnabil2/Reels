@@ -149,10 +149,10 @@
 <body>
 
 
-<header>Lorenz X Ops</header>
+<header id="site-title">Lorenz X Ops</header>
 
 <div class="controls" style="text-align:center; margin: 20px 0;">
-  <button onclick="setLang('ar')">🇸🇦 عربي</button>
+  <button onclick="setLang('ar')">🇮🇶 عربي</button>
   <button onclick="setLang('en')">🇬🇧 English</button>
   <button onclick="setLang('ku')">🇹🇯 کوردی</button>
   <button id="themeToggle" onclick="toggleTheme()">🌙 الوضع الليلي</button>
@@ -216,6 +216,7 @@ const translations = {
 function setLang(lang) {
   document.querySelector('.intro').innerText = translations[lang].intro;
   document.querySelector('.section-title').innerText = translations[lang].title;
+  document.getElementById('site-title').innerText = translations[lang].sitename;
   document.querySelector('.contact h3').innerText = translations[lang].contact;
   document.querySelectorAll('.card a').forEach(btn => {
     let txt = btn.getAttribute('href').split("text=")[1] || "";

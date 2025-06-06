@@ -4,283 +4,226 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>نورهان حسن حمزة - السيرة الذاتية</title>
+  <title>Lorenz X Ops</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
     body {
       font-family: 'Cairo', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f3f0fa;
-      color: #2d1e4f;
-    }
-    body.dark {
-      background-color: #2d1e4f;
-      color: #ffffff;
+      background: #fffaf5;
+      color: #333;
     }
     header {
-      background-color: #6a1b9a;
+      background: linear-gradient(90deg, #ff6f00, #ffa726);
+      padding: 30px 20px;
+      text-align: center;
       color: white;
+      font-size: 34px;
+      font-weight: bold;
+    }
+    .intro {
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      background: #fff3e0;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: white;
+    }
+    .product img {
+      width: 100%;
+      display: block;
+    }
+    .contact {
+      background: #fff3e0;
       padding: 25px;
       text-align: center;
-      font-size: 28px;
+      margin-top: 30px;
     }
-    .controls {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 15px;
+    .contact h3 {
+      color: #ff6f00;
+      margin-bottom: 10px;
     }
-    .controls button {
-      padding: 10px 16px;
-      background-color: #8e24aa;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    .contact p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+    .contact a {
+      color: #ff6f00;
       font-weight: bold;
-    }
-    .controls button:hover {
-      background-color: #6a1b9a;
-    }
-    .section {
-      background: white;
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-    body.dark .section {
-      background-color: #3b2b5c;
-    }
-    ul {
-      padding-right: 20px;
-      line-height: 1.8;
-    }
-    a {
-      color: #8e24aa;
       text-decoration: none;
-      font-weight: bold;
     }
-    a:hover {
-      text-decoration: underline;
+    footer {
+      background: #ffe0b2;
+      text-align: center;
+      font-size: 14px;
+      padding: 15px;
+      margin-top: 10px;
+      color: #555;
     }
   </style>
-
-<style>
-@media screen {
-  .print-only { display: none !important; }
-}
-@media print {
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    font-size: 11px;
-    line-height: 1.3;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    direction: rtl;
-  }
-  header {
-    font-size: 17px !important;
-    padding: 4px 0 !important;
-    margin-bottom: 0 !important;
-  }
-  .section {
-    margin: 4px 0 !important;
-    padding: 4px 8px !important;
-    page-break-inside: avoid !important;
-    box-shadow: none !important;
-    background: none !important;
-  }
-  .controls {
-    display: none !important;
-  }
-  .screen-only { display: none !important; }
-  .print-only {
-    display: block !important;
-    white-space: pre-wrap;
-    margin-top: 5px;
-  }
-  @page {
-    size: A4;
-    margin: 6mm;
-  }
-}
-</style>
 </head>
 <body>
 
-<header id="name">نورهان حسن حمزة</header>
+<header>Lorenz X Ops</header>
 
-
-<div class="controls">
-  <button onclick="window.print()" style="background-color:#4caf50;border:none;border-radius:6px;padding:10px 16px;font-weight:bold;color:white;cursor:pointer;">
-    🖨️ طباعة PDF
-  </button>
-
-  <button onclick="setLanguage('ar')">عربي</button>
-  <button onclick="setLanguage('en')">English</button>
-  <button onclick="setLanguage('ku')">کوردی</button>
-  <button onclick="toggleTheme()" id="themeToggle">الوضع الليلي</button>
+<div class="intro">
+  مرحبًا بكم في متجر <strong>Lorenz X Ops</strong> لبيع بطاقات الرصيد الخاصة بالترويج عبر وسائل التواصل الاجتماعي.
 </div>
 
-<div class="section">
-  <h2 id="personal-title">المعلومات الشخصية</h2>
-  <ul id="personal-info">
-    <li>الحالة الاجتماعية: عزباء</li>
-    <li>تاريخ الميلاد: 18/3/2004</li>
-    <li>لون البشرة: حنطاوي</li>
-    <li>الطول: 154 سم</li>
-    <li>الوزن: 65 كغم</li>
-  </ul>
-</div>
+<div class="products">
 
-<div class="section">
-  <h2 id="about-title">من أنا؟</h2>
-  <p id="about-text" class="screen-only">أنا طالبة في المرحلة الثانية من كلية الصيدلة.
-أسعى لتطوير مهاراتي واكتساب خبرة عملية.
-أتمتع بمهارات تواصل ممتازة.
-أبحث عن فرصة عمل في المجال الصحي.
-أسعى لأكون جزءًا من فريق ناجح.
-    أنا طالبة في المرحلة الثانية من كلية الصيدلة، طموحة وأسعى إلى اكتساب الخبرة العملية وتطوير مهاراتي في مجال الأدوية والتسويق. لدي قدرة ممتازة على التواصل والإقناع، واهتمام كبير بالتفاصيل والدقة في العمل. أبحث عن فرصة عمل كمندوبة أدوية أو في خدمة العملاء، وأسعى لأكون جزءًا من فريق ناجح أساهم في دعمه وتحقيق أهدافه.
-  </p>
-<p class="print-only" style="display:none;">أنا طالبة في المرحلة الثانية من كلية الصيدلة.
-أسعى لاكتساب الخبرة العملية في المجال الصحي.
-لدي طموح لتطوير نفسي باستمرار.
-أتمتع بقدرة عالية على التواصل.
-أجيد مهارات الإقناع بمرونة.
-أهتم بالتفاصيل الدقيقة في العمل.
-ألتزم بالدقة والمهنية في المهام.
-أبحث عن فرصة كمندوبة أدوية.
-أو فرصة عمل في خدمة العملاء.
-أحب أن أكون جزءًا من فريق ناجح.
-أعمل على دعم أهداف المؤسسة.
-أتحمل ضغط العمل بمرونة عالية.
-أتقن استخدام تطبيقات الهاتف.
-أمتلك مهارة تنظيم الوقت.
-أسعى لتقديم أفضل ما لدي دائماً.</p>
-</div>
+  <div class="product">
+    <img src="5usd.jpg" alt="باقة 5 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 5 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
 
-<div class="section">
-  <h2 id="skills-title">المهارات</h2>
-  <ul id="skills-list">
-    <li>مهارة التواصل الفعّال</li>
-    <li>اللباقة في الحديث والإقناع</li>
-    <li>الرد على الاستفسارات</li>
-    <li>تحمل ضغط العمل</li>
-    <li>السرعة في التعلم</li>
-    <li>إدارة الوقت وتنظيم المهام</li>
-    <li>خبرة سابقة في صيدلية</li>
-    <li>القدرة على العمل من المنزل أو ميدانيًا</li>
-    <li>استخدام تطبيقات الهاتف (واتساب – تلغرام – البريد الإلكتروني)</li>
-  </ul>
-</div>
 
-<div class="section">
-  <h2 id="languages-title">اللغات</h2>
-  <div id="languages-list">
-    <p>اللغة العربية: <strong>94%</strong></p>
-    <p>اللغة الإنجليزية: <strong>67%</strong></p>
+  <div class="product">
+    <img src="10usd.jpg" alt="باقة 10 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 10 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="15usd.jpg" alt="باقة 15 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 15 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="20usd.jpg" alt="باقة 20 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 20 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="25usd.jpg" alt="باقة 25 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 25 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="30usd.jpg" alt="باقة 30 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 30 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="40usd.jpg" alt="باقة 40 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 40 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="50usd.jpg" alt="باقة 50 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 50 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="50usd_2.jpg" alt="باقة 50 دولار إضافية">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 50 دولار إضافية" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+
+  <div class="product">
+    <img src="100usd.jpg" alt="باقة 100 دولار">
+    <a href="https://wa.me/9647736578905?text=مرحبا، أود طلب باقة 100 دولار" target="_blank"
+       style="display:block;margin:10px auto 15px auto;width:80%;text-align:center;background-color:#ff6f00;color:white;padding:10px;border-radius:6px;text-decoration:none;font-weight:bold;">
+      طلب الباقة
+    </a>
+  </div>
+
+  <div class="product">
+    <img src="5usd.jpg" alt="باقة 5 دولار">
+  </div>
+  <div class="product">
+    <img src="10usd.jpg" alt="باقة 10 دولار">
+  </div>
+  <div class="product">
+    <img src="15usd.jpg" alt="باقة 15 دولار">
+  </div>
+
+  <div class="product">
+    <img src="20usd.jpg" alt="باقة 20 دولار">
+  </div>
+
+  <div class="product">
+    <img src="25usd.jpg" alt="باقة 25 دولار">
+  </div>
+
+  <div class="product">
+    <img src="30usd.jpg" alt="باقة 30 دولار">
+  </div>
+
+  <div class="product">
+    <img src="40usd.jpg" alt="باقة 40 دولار">
+  </div>
+
+  <div class="product">
+    <img src="50usd.jpg" alt="باقة 50 دولار">
+  </div>
+
+  <div class="product">
+    <img src="50usd_2.jpg" alt="باقة 50 دولار إضافية">
+  </div>
+
+  <div class="product">
+    <img src="100usd.jpg" alt="باقة 100 دولار">
   </div>
 </div>
 
-<div class="section">
-  <h2 id="contact-title">معلومات الاتصال</h2>
-  <p>📞 07765364626</p>
-  <p>📧 Eheiha412@gmail.com</p>
-  <p id="address">📍 بغداد / المدائن / شارع السوق</p>
-  <p><a href="https://wa.me/9647765364626" target="_blank" id="whatsapp-btn">تواصل معي على واتساب</a></p>
+<div class="contact">
+  <h3>معلومات الاتصال</h3>
+  <p>📞 07736578905</p>
+  <p>📧 lorenzxops@gmail.com</p>
+  <p>📍 بغداد - القاهرة</p>
+  <p>💬 <a href="https://wa.me/9647736578905" target="_blank">تواصل على واتساب</a></p>
 </div>
 
-<script>
-const translations = {
-  ar: {
-    name: "نورهان حسن حمزة",
-    personalTitle: "المعلومات الشخصية",
-    personalInfo: `
-      <li>الحالة الاجتماعية: عزباء</li>
-      <li>تاريخ الميلاد: 18/3/2004</li>
-      <li>لون البشرة: حنطاوي</li>
-      <li>الطول: 154 سم</li>
-      <li>الوزن: 65 كغم</li>
-    `,
-    aboutTitle: "من أنا؟",
-    aboutText: "أنا طالبة في المرحلة الثانية من كلية الصيدلة، طموحة وأسعى إلى اكتساب الخبرة العملية وتطوير مهاراتي في مجال الأدوية والتسويق...",
-    skillsTitle: "المهارات",
-    contactTitle: "معلومات الاتصال",
-    address: "📍 بغداد / المدائن / شارع السوق",
-    whatsappBtn: "تواصل معي على واتساب",
-    languagesTitle: "اللغات",
-    languagesList: "<p>اللغة العربية: <strong>94%</strong></p><p>اللغة الإنجليزية: <strong>67%</strong></p>"
-  },
-  en: {
-    name: "Norhan Hassan Hamza",
-    personalTitle: "Personal Information",
-    personalInfo: `
-      <li>Marital Status: Single</li>
-      <li>Date of Birth: 18/3/2004</li>
-      <li>Skin Tone: Wheatish</li>
-      <li>Height: 154 cm</li>
-      <li>Weight: 65 kg</li>
-    `,
-    aboutTitle: "About Me",
-    aboutText: "I am a second-year pharmacy student, ambitious and eager to gain experience and develop my skills in pharmaceuticals and marketing...",
-    skillsTitle: "Skills",
-    contactTitle: "Contact Info",
-    address: "📍 Baghdad / Mada'in / Market Street",
-    whatsappBtn: "Contact me on WhatsApp",
-    languagesTitle: "Languages",
-    languagesList: "<p>Arabic: <strong>94%</strong></p><p>English: <strong>67%</strong></p>"
-  },
-  ku: {
-    name: "نوورهان حەسەن حەمزە",
-    personalTitle: "زانیاری کەسی",
-    personalInfo: `
-      <li>بارودوخی خێزانی: نەخۆشەویست</li>
-      <li>دەروونی لەدایکبوون: 18/3/2004</li>
-      <li>ڕەنگی پوست: حەنتاوی</li>
-      <li>بەرزی: 154 سم</li>
-      <li>کێشی: 65 کگ</li>
-    `,
-    aboutTitle: "دەربارەی من",
-    aboutText: "من خوێندکاری ساڵی دووەمی پزیشکی داروسازی مە، خاوەن هیوا و حەول دەدەم بۆ بەدەستهێنانی تاقیکردنەوە و پەرەسەندنی تواناکانم...",
-    skillsTitle: "تواناکان",
-    contactTitle: "زانیاری پەیوەندی",
-    address: "📍 بەغداد / مەدایین / شەقامی بازاڕ",
-    whatsappBtn: "پەیوەندی بکە لە واتساپ",
-    languagesTitle: "زمانەکان",
-    languagesList: "<p>عەڕەبی: <strong>94%</strong></p><p>ئینگلیزی: <strong>67%</strong></p>"
-  }
-};
-
-function setLanguage(lang) {
-  const t = translations[lang];
-  document.getElementById("name").textContent = t.name;
-  document.getElementById("personal-title").textContent = t.personalTitle;
-  document.getElementById("personal-info").innerHTML = t.personalInfo;
-  document.getElementById("about-title").textContent = t.aboutTitle;
-  document.getElementById("about-text").textContent = t.aboutText;
-  document.getElementById("skills-title").textContent = t.skillsTitle;
-  document.getElementById("contact-title").textContent = t.contactTitle;
-  document.getElementById("address").textContent = t.address;
-  document.getElementById("whatsapp-btn").textContent = t.whatsappBtn;
-  document.getElementById("languages-title").textContent = t.languagesTitle;
-  document.getElementById("languages-list").innerHTML = t.languagesList;
-
-  document.body.dir = lang === 'en' ? 'ltr' : 'rtl';
-  document.body.style.textAlign = lang === 'en' ? 'left' : 'right';
-}
-
-function toggleTheme() {
-  document.body.classList.toggle('dark');
-  document.getElementById("themeToggle").textContent =
-    document.body.classList.contains("dark") ? "الوضع النهاري" : "الوضع الليلي";
-}
-</script>
+<footer>
+  © 2024 Lorenz X Ops - جميع الحقوق محفوظة
+</footer>
 
 </body>
 </html>

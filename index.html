@@ -133,7 +133,18 @@
       font-size: 14px;
       color: #555;
     }
-  </style>
+  
+@media (max-width: 768px) {
+  .products {
+    grid-template-columns: 1fr !important;
+    padding: 10px;
+  }
+  .card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+</style>
 </head>
 <body>
 

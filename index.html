@@ -1,12 +1,11 @@
 
 <!DOCTYPE html>
-
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Lorenz X Ops</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lorenz X Ops</title>
+  <style>
     :root {
       --bg: #ffffff;
       --text: #222;
@@ -89,9 +88,6 @@
       cursor: pointer;
     }
     #modal {
-  animation: popIn 0.3s ease-in-out;
-  transform: scale(1);
-
       display: none;
       position: fixed;
       top:0; left:0; right:0; bottom:0;
@@ -124,35 +120,36 @@
       text-decoration: none;
       font-weight: bold;
     }
-  
-@keyframes popIn {
-  0% { transform: scale(0.7); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-</style>
+  </style>
 </head>
 <body>
-<header>
-<img alt="Lorenz X Ops" class="logo" src="lorenzx_final_logo.gif"/>
-<div class="controls">
-<button onclick="setLang('ar')">🇮🇶 عربي</button>
-<button onclick="setLang('en')">🇺🇸 English</button>
-<button onclick="setLang('ku')">🇹🇯 کوردی</button>
-</div>
-</header>
-<section class="intro" id="introText">
+  <header>
+    <img src="lorenzx_final_logo.gif" class="logo" alt="Lorenz X Ops" />
+    <div class="controls">
+      <button onclick="setLang('ar')">🇮🇶 عربي</button>
+      <button onclick="setLang('en')">🇺🇸 English</button>
+      <button onclick="setLang('ku')">🇹🇯 کوردی</button>
+      
+    </div>
+  </header>
+
+  <section class="intro" id="introText">
     أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.
   </section>
-<section class="products" id="productsGrid"></section>
-<div id="modal">
-<div class="content">
-<span class="close" onclick="closeModal()">×</span>
-<div id="modalContent"></div>
-<a href="#" id="whatsBtn" target="_blank">شراء الآن</a>
-</div>
-</div>
-<audio id="clickSound" preload="auto" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3bdb2411db.mp3"></audio>
-<script>
+
+  <section class="products" id="productsGrid"></section>
+
+  <div id="modal">
+    <div class="content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div id="modalContent"></div>
+      <a id="whatsBtn" href="#" target="_blank">شراء الآن</a>
+    </div>
+  </div>
+
+  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3bdb2411db.mp3" preload="auto"></audio>
+
+  <script>
     const products = [
       { price: 5, image: "5usd.jpg" },
       { price: 10, image: "10usd.jpg" },

@@ -144,19 +144,65 @@
     max-width: 100%;
   }
 }
+
+.controls button {
+  margin: 5px;
+  padding: 8px 14px;
+  font-family: Cairo, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background-color: #ffcc80;
+  color: #333;
+}
+.controls button:hover {
+  background-color: #ffb74d;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #1c1c1c;
+  color: #eee;
+}
+body.dark .card {
+  background-color: #2a2a2a;
+  color: white;
+}
+body.dark .card a {
+  background-color: #333;
+  color: #ffa726;
+}
+body.dark .card a:hover {
+  background-color: #444;
+  color: #ffcc80;
+}
+body.dark header {
+  background: #333;
+}
+body.dark .intro,
+body.dark .contact,
+body.dark footer {
+  background-color: #2a2a2a;
+  color: #ccc;
+}
 </style>
 </head>
 <body>
 
 
+
 <header id="site-title">Lorenz X Ops</header>
 
 <div class="controls" style="text-align:center; margin: 20px 0;">
-  <button onclick="setLang('ar')">🇮🇶 عربي</button>
-  <button onclick="setLang('en')">🇬🇧 English</button>
-  <button onclick="setLang('ku')">🇹🇯 کوردی</button>
-  <button id="themeToggle" onclick="toggleTheme()">🌙 الوضع الليلي</button>
+  <button class="lang-btn" data-lang="ar">🇮🇶 عربي</button>
+  <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+  <button class="lang-btn" data-lang="ku">🇹🇯 کوردی</button>
+  <button id="themeToggle">🌙 الوضع الليلي</button>
 </div>
+
+
 
 
 <div class="intro">
@@ -194,7 +240,55 @@
 
 
 <script>
+
 document.addEventListener("DOMContentLoaded", function() {
+  const translations = {
+    ar: {
+      sitename: "لورينز اكس",
+      title: "باقات الرصيد",
+      intro: "متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي.",
+      contact: "معلومات الاتصال",
+      request: "طلب باقة"
+    },
+    en: {
+      sitename: "Lorenz X Ops",
+      title: "Credit Packages",
+      intro: "A professional store specializing in selling credit cards for social media promotion.",
+      contact: "Contact Info",
+      request: "Order Package"
+    },
+    ku: {
+      sitename: "لورنز ئێکس",
+      title: "Pakêtakanî بڕی پارە",
+      intro: "فرۆشگای پەڕەیەکی پەروەردەی خەریکی فرۆشتنی pakêt bo تۆڕە کۆمەڵایەتییەکانە.",
+      contact: "زانیاری پەیوەندی",
+      request: "داواکردنی pakêt"
+    }
+  };
+
+  document.querySelectorAll('.lang-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const lang = button.dataset.lang;
+      document.querySelector('.intro').innerText = translations[lang].intro;
+      document.querySelector('.section-title').innerText = translations[lang].title;
+      document.querySelector('.contact h3').innerText = translations[lang].contact;
+      document.getElementById('site-title').innerText = translations[lang].sitename;
+      document.querySelectorAll('.card a').forEach(btn => {
+        let txt = btn.getAttribute('href').split("text=")[1] || "";
+        let val = decodeURIComponent(txt).match(/باقة ([0-9]+)/);
+        let num = val ? val[1] : "";
+        btn.innerText = translations[lang].request + " " + num + " دولار";
+      });
+    });
+  });
+
+  document.getElementById("themeToggle").addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
+    document.getElementById("themeToggle").innerText = isDark ? "☀️ الوضع النهاري" : "🌙 الوضع الليلي";
+  });
+
+  // تم حذف أزرار اللغات والوضع الليلي
   const langButtons = document.querySelectorAll("button[onclick^='setLang']");
   const themeButton = document.getElementById("themeToggle");
 
@@ -282,6 +376,50 @@ function toggleTheme() {
 
 
 <style>
+/* حذف أزرار اللغات */
+.controls button { display: none; }
+  margin: 5px;
+  padding: 8px 14px;
+  font-family: Cairo, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background-color: #ffcc80;
+  color: #333;
+}
+.controls button:hover {
+  background-color: #ffb74d;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #1c1c1c;
+  color: #eee;
+}
+body.dark .card {
+  background-color: #2a2a2a;
+  color: white;
+}
+body.dark .card a {
+  background-color: #333;
+  color: #ffa726;
+}
+body.dark .card a:hover {
+  background-color: #444;
+  color: #ffcc80;
+}
+body.dark header {
+  background: #333;
+}
+body.dark .intro,
+body.dark .contact,
+body.dark footer {
+  background-color: #2a2a2a;
+  color: #ccc;
+}
+
 .controls button {
   margin: 5px;
   padding: 8px 14px;

@@ -3,72 +3,107 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>لورينز اكس وبس</title>
+  <title>Lorenz X Ops</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; }
-    .logo { text-align: center; padding: 20px; }
-    .logo img { width: 150px; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffffff, #f8f9ff);
+      color: #333;
+    }
+    .logo {
+      text-align: center;
+      padding: 30px 0 10px;
+    }
+    .logo img {
+      width: 180px;
+    }
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       padding: 20px;
+      max-width: 1000px;
+      margin: auto;
     }
     .card {
       background: white;
-      border-radius: 10px;
-      padding: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      overflow: hidden;
     }
-    .card img { width: 100%; border-radius: 8px; }
-    .card p { font-weight: bold; color: #ff6600; }
-    .card button {
-      background: #ff6600;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .card-content {
+      padding: 15px;
+      text-align: center;
+    }
+    .card-content p {
+      margin: 8px 0;
+      font-weight: bold;
+      color: #ff6600;
+    }
+    .card-content button {
+      background-color: #ff6600;
       color: white;
       border: none;
       padding: 10px 20px;
-      margin-top: 10px;
       border-radius: 8px;
+      font-size: 15px;
+      transition: background 0.3s ease;
+    }
+    .card-content button:hover {
+      background-color: #e65100;
     }
     .popup {
       display: none;
       position: fixed;
       top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
       justify-content: center;
       align-items: center;
       z-index: 999;
     }
     .popup-content {
       background: white;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 90%;
+      padding: 25px;
+      border-radius: 12px;
       text-align: center;
+      width: 90%;
+      max-width: 400px;
       position: relative;
     }
+    .popup-content h3 {
+      margin-top: 0;
+    }
     .popup-content button {
-      background: #25D366;
+      margin-top: 15px;
+      background-color: #25D366;
       color: white;
       padding: 10px 20px;
       border: none;
       border-radius: 8px;
       font-size: 16px;
-      margin-top: 15px;
     }
-    .close-btn {
-      background: none;
-      border: none;
-      color: red;
-      font-size: 22px;
+    .popup-content .close-btn {
       position: absolute;
       top: 10px;
       left: 15px;
+      font-size: 20px;
+      background: none;
+      border: none;
+      color: red;
       cursor: pointer;
     }
   </style>
@@ -79,61 +114,69 @@
   </div>
 
   <div class="cards">
-    
     <div class="card" onclick="showPopup(5, 8500)">
-      <img src="5usd.jpg" alt="5$">
-      <p>= 8,500 دينار عراقي</p>
-      <button>شراء باقة 5$</button>
+      <img src="5usd.jpg">
+      <div class="card-content">
+        <p>= 8,500 دينار عراقي</p>
+        <button>شراء باقة 5$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(10, 17000)">
-      <img src="10usd.jpg" alt="10$">
-      <p>= 17,000 دينار عراقي</p>
-      <button>شراء باقة 10$</button>
+      <img src="10usd.jpg">
+      <div class="card-content">
+        <p>= 17,000 دينار عراقي</p>
+        <button>شراء باقة 10$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(15, 25500)">
-      <img src="15usd.jpg" alt="15$">
-      <p>= 25,500 دينار عراقي</p>
-      <button>شراء باقة 15$</button>
+      <img src="15usd.jpg">
+      <div class="card-content">
+        <p>= 25,500 دينار عراقي</p>
+        <button>شراء باقة 15$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(20, 34000)">
-      <img src="20usd.jpg" alt="20$">
-      <p>= 34,000 دينار عراقي</p>
-      <button>شراء باقة 20$</button>
+      <img src="20usd.jpg">
+      <div class="card-content">
+        <p>= 34,000 دينار عراقي</p>
+        <button>شراء باقة 20$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(25, 42500)">
-      <img src="25usd.jpg" alt="25$">
-      <p>= 42,500 دينار عراقي</p>
-      <button>شراء باقة 25$</button>
+      <img src="25usd.jpg">
+      <div class="card-content">
+        <p>= 42,500 دينار عراقي</p>
+        <button>شراء باقة 25$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(30, 51000)">
-      <img src="30usd.jpg" alt="30$">
-      <p>= 51,000 دينار عراقي</p>
-      <button>شراء باقة 30$</button>
+      <img src="30usd.jpg">
+      <div class="card-content">
+        <p>= 51,000 دينار عراقي</p>
+        <button>شراء باقة 30$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(40, 68000)">
-      <img src="40usd.jpg" alt="40$">
-      <p>= 68,000 دينار عراقي</p>
-      <button>شراء باقة 40$</button>
+      <img src="40usd.jpg">
+      <div class="card-content">
+        <p>= 68,000 دينار عراقي</p>
+        <button>شراء باقة 40$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(50, 85000)">
-      <img src="50usd.jpg" alt="50$">
-      <p>= 85,000 دينار عراقي</p>
-      <button>شراء باقة 50$</button>
+      <img src="50usd.jpg">
+      <div class="card-content">
+        <p>= 85,000 دينار عراقي</p>
+        <button>شراء باقة 50$</button>
+      </div>
     </div>
-    
     <div class="card" onclick="showPopup(100, 170000)">
-      <img src="100usd.jpg" alt="100$">
-      <p>= 170,000 دينار عراقي</p>
-      <button>شراء باقة 100$</button>
+      <img src="100usd.jpg">
+      <div class="card-content">
+        <p>= 170,000 دينار عراقي</p>
+        <button>شراء باقة 100$</button>
+      </div>
     </div>
-    
   </div>
 
   <div class="popup" id="popup">
@@ -141,22 +184,29 @@
       <button class="close-btn" onclick="closePopup()">×</button>
       <h3>تفاصيل الباقة</h3>
       <p id="popup-details"></p>
-      
+      <button id="whatsapp-btn">شراء الآن</button>
     </div>
   </div>
 
   <script>
     function showPopup(usd, iqd) {
-      document.getElementById('popup-details').innerText = "باقة " + usd + "$ = " + iqd.toLocaleString() + " دينار عراقي";
-      document.getElementById('popup').style.display = 'flex';
+      document.getElementById('popup-details').innerHTML = `باقة ${usd}$ = ${iqd.toLocaleString()} دينار`;
       document.getElementById('whatsapp-btn').onclick = function() {
-        const msg = "أرغب بشراء باقة " + usd + "$ بسعر " + iqd.toLocaleString() + " دينار عراقي. الرجاء تأكيد الطلب.";
-        window.open("https://wa.me/9647736578905?text=" + encodeURIComponent(msg), '_blank');
+        const msg = `أرغب بشراء باقة ${usd}$ بسعر ${iqd.toLocaleString()} دينار`;
+        window.open(`https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`, '_blank');
       };
+      document.getElementById('popup').style.display = 'flex';
     }
     function closePopup() {
       document.getElementById('popup').style.display = 'none';
     }
   </script>
-</body>
+
+    <footer style="background:#ff6600; color:white; padding:20px; text-align:center; font-size:15px;">
+      <p>📞 الهاتف: 07736578905</p>
+      <p>📧 البريد الإلكتروني: <a href="mailto:lorenzxops@gmail.com" style="color:white;">lorenzxops@gmail.com</a></p>
+      <p>📍 العنوان: بغداد، حي القاهرة</p>
+    </footer>
+    </body>
+    
 </html>

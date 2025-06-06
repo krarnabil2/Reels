@@ -1,0 +1,36 @@
+
+body {
+  font-family: sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.logo {
+  width: 50%;
+  max-width: 300px;
+  margin: 20px auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 10px;
+}
+.card {
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 10px;
+}
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+.card button {
+  margin-top: 10px;
+  background: orange;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}

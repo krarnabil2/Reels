@@ -3,166 +3,24 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>متجر الباقات</title>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Tajawal', sans-serif;
-      background: linear-gradient(to bottom, #ffffff, #fef6f1);
-      color: #222;
-    }
-    header {
-      text-align: center;
-      padding: 30px 10px;
-      background: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    header img {
-      width: 220px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      padding: 20px;
-      animation: fadeInUp 0.5s ease both;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .card img {
-      width: 100%; height: auto; object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-    .card h2 {
-      color: #ff6600;
-      margin: 10px 0;
-      font-size: 22px;
-    }
-    .card p {
-      font-size: 16px;
-    }
-    .card button {
-      background: #ff6600;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 15px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-    .card button:hover {
-      background: #e25700;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: auto; object-fit: cover; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .popup .content {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      width: 320px;
-      text-align: center;
-      animation: fadeIn 0.3s ease;
-    }
-    footer {
-      background: #f8f8f8;
-      text-align: center;
-      font-size: 15px;
-      padding: 25px;
-      margin-top: 50px;
-      color: #444;
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: scale(0.95);}
-      to {opacity: 1; transform: scale(1);}
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>لورنز اكس وبس</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
-<header>
-  <img src="./images/logo.gif" alt="Logo">
-</header>
-
-<main class="grid" id="cards"></main>
-
-<div class="popup" id="popup">
-  <div class="content">
-    <h3>تفاصيل الباقة</h3>
-    <p id="details"></p>
-    <a id="waLink" target="_blank"><button>شراء الآن</button></a><br><br>
-    <button onclick="document.getElementById('popup').style.display='none'">إغلاق</button>
-  </div>
-</div>
-
-<footer>
-📞 07736578905 | 📧 lorenzxops@gmail.com | 📍 بغداد - القاهرة | واتساب: 07736578905
-</footer>
-
-<script>
-  const products = [
-    {price: 5, dinar: 8500},
-    {price: 10, dinar: 17000},
-    {price: 15, dinar: 25500},
-    {price: 20, dinar: 34000},
-    {price: 25, dinar: 42500},
-    {price: 30, dinar: 51000},
-    {price: 40, dinar: 68000},
-    {price: 50, dinar: 85000},
-    {price: 100, dinar: 170000}
-  ];
-
-  const container = document.getElementById("cards");
-  const details = document.getElementById("details");
-  const popup = document.getElementById("popup");
-  const waLink = document.getElementById("waLink");
-
-  products.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "card";
-    div.innerHTML = `
-      <img src="./images/${p.price}.jpg" alt="باقة ${p.price}$">
-      <h2>باقة ${p.price}$</h2>
-      <p>${p.dinar.toLocaleString()} دينار عراقي</p>
-      <button onclick="showDetails(${p.price}, ${p.dinar})">شراء باقة ${p.price}$</button>
-    `;
-    container.appendChild(div);
-  });
-
-  function showDetails(price, dinar) {
-    details.innerHTML = `باقة ${price}$<br>السعر: ${dinar.toLocaleString()} دينار`;
-    waLink.href = `https://wa.me/9647736578905?text=أرغب بشراء باقة ${price}$ بسعر ${dinar.toLocaleString()} دينار`;
-    popup.style.display = "flex";
-  }
-</script>
-
+  <header>
+    <img src="images/logo.png" alt="Lorenz Logo" class="logo" />
+  </header>
+  <main class="grid">
+    <div class="card"><img src="images/card_5.jpg" alt="5$" /><button>شراء باقة 5$</button></div>
+    <div class="card"><img src="images/card_10.jpg" alt="10$" /><button>شراء باقة 10$</button></div>
+    <div class="card"><img src="images/card_15.jpg" alt="15$" /><button>شراء باقة 15$</button></div>
+    <div class="card"><img src="images/card_20.jpg" alt="20$" /><button>شراء باقة 20$</button></div>
+    <div class="card"><img src="images/card_25.jpg" alt="25$" /><button>شراء باقة 25$</button></div>
+    <div class="card"><img src="images/card_30.jpg" alt="30$" /><button>شراء باقة 30$</button></div>
+    <div class="card"><img src="images/card_40.jpg" alt="40$" /><button>شراء باقة 40$</button></div>
+    <div class="card"><img src="images/card_50.jpg" alt="50$" /><button>شراء باقة 50$</button></div>
+    <div class="card"><img src="images/card_100.jpg" alt="100$" /><button>شراء باقة 100$</button></div>
+  </main>
 </body>
 </html>

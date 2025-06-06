@@ -192,7 +192,7 @@
     function showPopup(usd, iqd) {
       document.getElementById('popup-details').innerHTML = `باقة ${usd}$ = ${iqd.toLocaleString()} دينار`;
       document.getElementById('whatsapp-btn').onclick = function() {
-        const msg = `أرغب بشراء باقة ${usd}$ بسعر ${iqd.toLocaleString()} دينار`;
+        const msg = `مرحباً، أود شراء باقة بقيمة ${usd}$، السعر المقابل بالدينار هو ${iqd.toLocaleString()} دينار عراقي. الرجاء تأكيد الطلب.`;
         window.open(`https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`, '_blank');
       };
       document.getElementById('popup').style.display = 'flex';

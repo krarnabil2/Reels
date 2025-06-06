@@ -2,235 +2,178 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lorenz X Ops</title>
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #222;
-      --accent: #f97316;
-    }
-    [data-theme='dark'] {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --accent: #facc15;
-    }
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-    .logo {
-      width: 100%;
-      max-width: 700px;
-      height: auto;
-      aspect-ratio: 16/9;
-      display: block;
-      margin: auto;
-    }
-    .controls {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .controls button {
-      margin: 5px;
-      padding: 10px 14px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      background: white;
-      color: var(--accent);
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .intro {
-      text-align: center;
-      margin: 20px;
-      font-size: 1.1rem;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      cursor: pointer;
-    }
-    .card-footer {
-      background: #fff7f0;
-      padding: 12px;
-      font-weight: bold;
-      color: var(--accent);
-      text-align: center;
-      cursor: pointer;
-    }
-    #modal {
-      display: none;
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    #modal .content {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 90%;
-      position: relative;
-    }
-    #modal .close {
-      position: absolute;
-      top: 10px; right: 15px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    #modal a {
-      display: inline-block;
-      margin-top: 15px;
-      background: #25D366;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لورنز اكس وبس</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+        .logo {
+            text-align: center;
+            margin: 20px auto;
+        }
+        .logo img {
+            max-width: 90%;
+            height: auto;
+        }
+        .language-switcher {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .language-switcher button {
+            margin: 0 5px;
+            padding: 5px 15px;
+            font-size: 16px;
+            background: #fff;
+            border: 2px solid orange;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .language-switcher button:hover {
+            background: orange;
+            color: white;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 20px 40px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            display: block;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+        .popup-content h3 {
+            margin-top: 0;
+        }
+        .popup-content button {
+            margin-top: 20px;
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .popup-content button:hover {
+            background-color: #20b954;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="lorenzx_final_logo.gif" class="logo" alt="Lorenz X Ops" />
-    <div class="controls">
-      <button onclick="setLang('ar')">🇮🇶 عربي</button>
-      <button onclick="setLang('en')">🇺🇸 English</button>
-      <button onclick="setLang('ku')">🇹🇯 کوردی</button>
-      
+    <div class="logo">
+        <img src="images/logo.gif" alt="Lorenz X Ops Logo">
     </div>
-  </header>
-
-  <section class="intro" id="introText">
-    أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.
-  </section>
-
-  <section class="products" id="productsGrid"></section>
-
-  <div id="modal">
-    <div class="content">
-      <span class="close" onclick="closeModal()">×</span>
-      <div id="modalContent"></div>
-      <a id="whatsBtn" href="#" target="_blank">شراء الآن</a>
+    <div class="language-switcher">
+        <button>کوردی</button>
+        <button>English</button>
+        <button>عربي</button>
     </div>
-  </div>
+    <div class="description">
+        أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.
+    </div>
+    <div class="cards-container">
+        <div class="card" onclick="showPopup('5$', '8,500 دينار عراقي')">
+            <img src="images/5.jpg" alt="5$">
+        </div>
+        <div class="card" onclick="showPopup('10$', '17,000 دينار عراقي')">
+            <img src="images/10.jpg" alt="10$">
+        </div>
+        <div class="card" onclick="showPopup('15$', '25,500 دينار عراقي')">
+            <img src="images/15.jpg" alt="15$">
+        </div>
+        <div class="card" onclick="showPopup('20$', '34,000 دينار عراقي')">
+            <img src="images/20.jpg" alt="20$">
+        </div>
+        <div class="card" onclick="showPopup('25$', '42,500 دينار عراقي')">
+            <img src="images/25.jpg" alt="25$">
+        </div>
+        <div class="card" onclick="showPopup('30$', '51,000 دينار عراقي')">
+            <img src="images/30.jpg" alt="30$">
+        </div>
+        <div class="card" onclick="showPopup('40$', '68,000 دينار عراقي')">
+            <img src="images/40.jpg" alt="40$">
+        </div>
+        <div class="card" onclick="showPopup('50$', '85,000 دينار عراقي')">
+            <img src="images/50.jpg" alt="50$">
+        </div>
+        <div class="card" onclick="showPopup('100$', '170,000 دينار عراقي')">
+            <img src="images/100.jpg" alt="100$">
+        </div>
+    </div>
 
-  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3bdb2411db.mp3" preload="auto"></audio>
+    <div id="popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <h3>تفاصيل الباقة:</h3>
+            <p id="popup-details"></p>
+            <button id="whatsapp-btn">شراء الآن</button>
+        </div>
+    </div>
 
-  <script>
-    const products = [
-      { price: 5, image: "5usd.jpg" },
-      { price: 10, image: "10usd.jpg" },
-      { price: 15, image: "15usd.jpg" },
-      { price: 20, image: "20usd.jpg" },
-      { price: 25, image: "25usd.jpg" },
-      { price: 30, image: "30usd.jpg" },
-      { price: 40, image: "40usd.jpg" },
-      { price: 50, image: "50usd.jpg" },
-      { price: 100, image: "100usd.jpg" }
-    ];
-
-    const translations = {
-      ar: {
-        intro: "أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.",
-        order: "طلب باقة "
-      },
-      en: {
-        intro: "Welcome to Lorenz X Ops store for social media promotion packages.",
-        order: "Order $"
-      },
-      ku: {
-        intro: "بەخێربێیت بۆ فرۆشگای لۆرێنز بۆ پاکێجەکانی تەنسیق.",
-        order: "داواکردنی "
-      }
-    };
-    let currentLang = "ar";
-
-    window.addEventListener("DOMContentLoaded", () => {
-      setLang("ar");
-    });
-
-    function setLang(lang) {
-      currentLang = lang;
-      document.getElementById("introText").innerText = translations[lang].intro;
-      const grid = document.getElementById("productsGrid");
-      grid.innerHTML = "";
-      products.forEach(p => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <img src="${p.image}" onclick="showDetails(${p.price})" />
-          <div class="card-footer">${translations[lang].order} ${p.price} دولار</div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.getAttribute("data-theme") === "dark") {
-        html.removeAttribute("data-theme");
-        localStorage.setItem("theme", "light");
-      } else {
-        html.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      }
-    }
-
-    function showDetails(price) {
-      document.getElementById("clickSound").play();
-      const modal = document.getElementById("modal");
-      const content = document.getElementById("modalContent");
-      const dinar = price * 1700;
-      
-    const msg = `تفاصيل الباقة:\n- الفئة: $${price}\n- السعر بالدينار: ${dinar.toLocaleString()} دينار عراقي`;
-    content.innerHTML = msg.replace(/\n/g, "<br>").replace(/\$\{price\}/g, "$" + price);
-    document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`;
-    
-      document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;
-      modal.style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  </script>
+    <script>
+        function showPopup(value, price) {
+            const details = `الفئة: ${value}<br>السعر بالدينار: ${price}`;
+            document.getElementById("popup-details").innerHTML = details;
+            document.getElementById("popup").style.display = "flex";
+            document.getElementById("whatsapp-btn").onclick = function() {
+                const message = `أرغب بشراء باقة ${value}\nالسعر: ${price}`;
+                window.open(`https://wa.me/9647736578906?text=${encodeURIComponent(message)}`);
+            }
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
 </body>
 </html>

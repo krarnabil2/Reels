@@ -139,6 +139,57 @@
 <h2 class="section-title" id="section-title">باقات الرصيد</h2>
 
 <div class="products">
+
+  <div class="card">
+    <img src="5usd.jpg" alt="5 دولار" onclick="showDetails('5 دولار', 8500)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 5 دولار، قيمتها 8500 دينار عراقي" target="_blank">طلب باقة 5 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="10usd.jpg" alt="10 دولار" onclick="showDetails('10 دولار', 17000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 10 دولار، قيمتها 17000 دينار عراقي" target="_blank">طلب باقة 10 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="15usd.jpg" alt="15 دولار" onclick="showDetails('15 دولار', 25500)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 15 دولار، قيمتها 25500 دينار عراقي" target="_blank">طلب باقة 15 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="20usd.jpg" alt="20 دولار" onclick="showDetails('20 دولار', 34000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 20 دولار، قيمتها 34000 دينار عراقي" target="_blank">طلب باقة 20 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="25usd.jpg" alt="25 دولار" onclick="showDetails('25 دولار', 42500)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 25 دولار، قيمتها 42500 دينار عراقي" target="_blank">طلب باقة 25 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="30usd.jpg" alt="30 دولار" onclick="showDetails('30 دولار', 51000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 30 دولار، قيمتها 51000 دينار عراقي" target="_blank">طلب باقة 30 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="40usd.jpg" alt="40 دولار" onclick="showDetails('40 دولار', 68000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 40 دولار، قيمتها 68000 دينار عراقي" target="_blank">طلب باقة 40 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="50usd.jpg" alt="50 دولار" onclick="showDetails('50 دولار', 85000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار، قيمتها 85000 دينار عراقي" target="_blank">طلب باقة 50 دولار</a>
+  </div>
+
+  <div class="card">
+    <img src="50usd_2.jpg" alt="50 دولار إضافية" onclick="showDetails('50 دولار إضافية', 85000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار إضافية، قيمتها 85000 دينار عراقي" target="_blank">طلب باقة 50 دولار إضافية</a>
+  </div>
+
+  <div class="card">
+    <img src="100usd.jpg" alt="100 دولار" onclick="showDetails('100 دولار', 170000)">
+    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 100 دولار، قيمتها 170000 دينار عراقي" target="_blank">طلب باقة 100 دولار</a>
+  </div>
+
   <div class="card"><img src="5usd.jpg"><a href="#">طلب باقة 5 دولار</a></div>
   <div class="card"><img src="10usd.jpg"><a href="#">طلب باقة 10 دولار</a></div>
   <div class="card"><img src="15usd.jpg"><a href="#">طلب باقة 15 دولار</a></div>
@@ -207,5 +258,25 @@ document.getElementById("themeToggle").addEventListener("click", () => {
   document.getElementById("themeToggle").innerText = isDark ? "☀️ الوضع النهاري" : "🌙 الوضع الليلي";
 });
 </script>
+
+<script>
+function showDetails(label, price) {
+  const modal = document.getElementById("detailModal");
+  document.getElementById("modalLabel").innerText = label;
+  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
+  modal.style.display = "block";
+}
+function closeModal() {
+  document.getElementById("detailModal").style.display = "none";
+}
+</script>
+<div id="detailModal" style="display:none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,0.5);z-index:999;justify-content:center;align-items:center;">
+  <div style="background:white;padding:20px;border-radius:10px;max-width:300px;text-align:center;">
+    <h3 id="modalLabel"></h3>
+    <p id="modalPrice" style="font-size:18px;color:#ff6f00;"></p>
+    <button onclick="closeModal()" style="padding:8px 16px;background:#ff6f00;color:white;border:none;border-radius:5px;cursor:pointer;">إغلاق</button>
+  </div>
+</div>
+
 </body>
 </html>

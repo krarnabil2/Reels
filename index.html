@@ -8,111 +8,144 @@
   <style>
     :root {
       --bg: #ffffff;
-      --text: #333;
+      --text: #222;
       --accent: #f97316;
     }
+    [data-theme='dark'] {
+      --bg: #121212;
+      --text: #f0f0f0;
+      --accent: #facc15;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: background 0.4s, color 0.4s;
     }
     header {
       text-align: center;
       padding: 20px;
-      background: linear-gradient(to bottom, #ffffff 60%, #ffe9cc 100%);
     }
     .logo {
       width: 100%;
       max-width: 700px;
       height: auto;
       aspect-ratio: 16/9;
-      margin: 0 auto;
       display: block;
+      margin: auto;
     }
-    .lang-buttons {
+    .controls {
       text-align: center;
-      margin-top: 10px;
+      margin: 10px 0;
     }
-    .lang-buttons button, .theme-toggle {
+    .controls button {
       margin: 5px;
-      padding: 10px 15px;
+      padding: 10px 14px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: #fff;
-      color: #f97316;
+      border-radius: 6px;
       font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      background: white;
+      color: var(--accent);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     .intro {
-      font-size: 1.1rem;
-      margin: 20px;
       text-align: center;
+      margin: 20px;
+      font-size: 1.1rem;
     }
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       padding: 20px;
+      max-width: 1000px;
+      margin: auto;
     }
     .card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      background: white;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
       transition: transform 0.3s;
     }
-    .card:hover { transform: translateY(-5px); }
+    .card:hover {
+      transform: translateY(-5px);
+    }
     .card img {
       width: 100%;
-      height: auto;
-      display: block;
+      cursor: pointer;
     }
     .card-footer {
-      padding: 15px;
+      background: #fff7f0;
+      padding: 12px;
       font-weight: bold;
       color: var(--accent);
+      text-align: center;
       cursor: pointer;
-      background: #fff7f0;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1a1a1a;
-        --text: #fff;
-        --accent: #facc15;
-      }
+    #modal {
+      display: none;
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #modal .content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 90%;
+      position: relative;
+    }
+    #modal .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #modal a {
+      display: inline-block;
+      margin-top: 15px;
+      background: #25D366;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
     }
   </style>
-
-    <style>
-      [data-theme='dark'] {
-        --bg: #121212;
-        --text: #f0f0f0;
-        --accent: #facc15;
-      }
-    </style>
-    </head>
-    
+</head>
 <body>
   <header>
-    <img src="lorenzx_final_logo.gif" class="logo" />
-    <div class="lang-buttons">
+    <img src="lorenzx_final_logo.gif" class="logo" alt="Lorenz X Ops" />
+    <div class="controls">
       <button onclick="setLang('ar')">🇮🇶 عربي</button>
       <button onclick="setLang('en')">🇺🇸 English</button>
       <button onclick="setLang('ku')">🇹🇯 کوردی</button>
-      <button class="theme-toggle" onclick="toggleTheme()">🌓 الوضع الليلي/النهاري</button>
+      <button onclick="toggleTheme()">🌓 الوضع الليلي/النهاري</button>
     </div>
   </header>
+
   <section class="intro" id="introText">
     أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.
   </section>
-  
-    <section class="products" id="productsGrid" style="grid-template-columns: repeat(2, 1fr);">
-    
-    <!-- Cards will be injected dynamically -->
-  </section>
+
+  <section class="products" id="productsGrid"></section>
+
+  <div id="modal">
+    <div class="content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div id="modalContent"></div>
+      <a id="whatsBtn" href="#" target="_blank">تواصل عبر واتساب</a>
+    </div>
+  </div>
 
   <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3bdb2411db.mp3" preload="auto"></audio>
 
@@ -135,53 +168,36 @@
         order: "طلب باقة "
       },
       en: {
-        intro: "Welcome to Lorenz X Ops store for purchasing balance packages for social media promotion.",
+        intro: "Welcome to Lorenz X Ops store for social media promotion packages.",
         order: "Order $"
       },
       ku: {
-        intro: "بەخێربێیت بۆ فرۆشگای Lorenz X Ops بۆ کرینەوەی پاکێجەکانی تەوازن بۆ پەروەردنی لەسەر تۆڕە کۆمەڵایەتییەکان.",
-        order: "داواکردنی پاکەی "
+        intro: "بەخێربێیت بۆ فرۆشگای لۆرێنز بۆ پاکێجەکانی تەنسیق.",
+        order: "داواکردنی "
       }
     };
+    let currentLang = "ar";
 
-    let currentLang = 'ar';
-window.addEventListener('DOMContentLoaded', () => { renderProducts(); });
-    renderProducts();
+    window.addEventListener("DOMContentLoaded", () => {
+      setLang("ar");
+    });
 
     function setLang(lang) {
       currentLang = lang;
-      document.getElementById('introText').innerText = translations[lang].intro;
-      renderProducts();
-    }
-
-    function renderProducts() {
+      document.getElementById("introText").innerText = translations[lang].intro;
       const grid = document.getElementById("productsGrid");
       grid.innerHTML = "";
       products.forEach(p => {
-        const div = document.createElement("div");
-        div.className = "card";
-        div.innerHTML = `
-          <img src="${p.image}" alt="${p.price}$" onclick="showDetails(${p.price})" style="cursor:pointer;" />
-          <div class="card-footer" style="text-align:center;" onclick="playClick(); orderNow(${p.price})">
-            ${translations[currentLang].order} ${p.price} دولار
-          </div>
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${p.image}" onclick="showDetails(${p.price})" />
+          <div class="card-footer">${translations[lang].order} ${p.price} دولار</div>
         `;
-        grid.appendChild(div);
+        grid.appendChild(card);
       });
     }
 
-    function playClick() {
-      const audio = document.getElementById("clickSound");
-      if (audio) audio.play();
-    }
-
-    function orderNow(price) {
-      const msg = encodeURIComponent(`أرغب بطلب باقة $170000 دولار`);
-      const link = `https://wa.me/9647736578905?text=${msg}`;
-      window.open(link, "_blank");
-    }
-
-    
     function toggleTheme() {
       const html = document.documentElement;
       if (html.getAttribute("data-theme") === "dark") {
@@ -193,45 +209,24 @@ window.addEventListener('DOMContentLoaded', () => { renderProducts(); });
       }
     }
 
-    // Apply saved theme on load
-    window.onload = () => {
-      const saved = localStorage.getItem("theme");
-      if (saved === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
+    function showDetails(price) {
+      document.getElementById("clickSound").play();
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modalContent");
+      const dinar = price * 1700;
+      content.innerHTML = `فئة البطاقة: ${price} دولار<br>السعر بالدينار: ${dinar.toLocaleString()} دينار`;
+      document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;
+      modal.style.display = "flex";
     }
-    
-      if (document.documentElement.hasAttribute("data-theme")) {
-        document.documentElement.removeAttribute("data-theme");
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
+
+    function closeModal() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
     }
   </script>
-
-    <div id="modal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000a;display:none;align-items:center;justify-content:center;z-index:999;">
-      <div style="background:#fff;padding:20px;border-radius:12px;max-width:90%;text-align:center;position:relative">
-        <span onclick="document.getElementById('modal').style.display='none'" 
-              style="position:absolute;top:10px;right:20px;font-weight:bold;cursor:pointer;">×</span>
-        <div id="modalContent" style="font-size:18px;margin-bottom:15px;"></div>
-        <a id="whatsBtn" href="#" target="_blank"
-           style="background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:bold;">
-           تواصل عبر واتساب
-        </a>
-      </div>
-    </div>
-
-    <script>
-      function showDetails(price) {
-        const modal = document.getElementById('modal');
-        const content = document.getElementById('modalContent');
-        const btn = document.getElementById('whatsBtn');
-        const dinar = price * 1700;
-        content.innerText = `فئة البطاقة: ${price} دولار\nالسعر بالدينار العراقي: ${dinar.toLocaleString()} دينار`;
-        btn.href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;
-        modal.style.display = 'flex';
-      }
-    </script>
-    </body>
-    
+</body>
 </html>

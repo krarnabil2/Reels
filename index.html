@@ -42,9 +42,9 @@
     }
 
     .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      justify-items: center;
       gap: 24px;
       max-width: 1200px;
       margin: 30px auto;
@@ -72,7 +72,12 @@
       height: auto;
     }
 
+    
     .card a {
+      background: white;
+      color: #ff6f00;
+      border-top: 1px solid #eee;
+
       display: block;
       padding: 14px;
       font-size: 16px;
@@ -85,7 +90,13 @@
       transition: all 0.3s ease;
     }
 
+    
     .card a:hover {
+      background: #fff8f0;
+      color: #e65100;
+      transform: scale(1.01);
+      box-shadow: 0 3px 10px rgba(255, 111, 0, 0.1);
+
       background: linear-gradient(135deg, #ff7043, #e64a19);
       transform: scale(1.01);
     }

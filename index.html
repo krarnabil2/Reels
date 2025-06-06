@@ -1,34 +1,116 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لورنز اكس وبس</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorenz X Ops</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fefefe;
-      text-align: center;
-      direction: rtl;
-    }
-    header {
-      background: #fff;
-      padding: 20px;
-    }
-    header img {
-      max-width: 240px;
-      height: auto;
-    }
+    body { font-family: 'Cairo', sans-serif; background: #fffdf9; color: #222; margin: 0; }
+    header { background: #ff6f00; padding: 25px; text-align: center; color: white; font-size: 30px; font-weight: bold; }
+    .logo { text-align: center; padding-top: 15px; }
+    .logo img { max-width: 160px; max-height: 90px; }
+    .intro { background: #fff3e0; padding: 20px; text-align: center; font-size: 18px; }
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1100px; margin: 30px auto; padding: 0 15px; }
+    .card { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); overflow: hidden; }
+    .card img { width: 100%; display: block; cursor: pointer; }
+    .card a { display: block; padding: 14px; font-weight: bold; text-align: center; text-decoration: none; color: #ff6f00; background: white; border-top: 1px solid #eee; }
+    .card a:hover { background: #fff8f0; color: #e65100; }
+    .contact { background: #fff3e0; padding: 30px; text-align: center; font-size: 16px; }
+    .contact h3 { color: #e65100; }
+    .contact a { color: #e65100; text-decoration: none; font-weight: bold; }
+    footer { background: #ffe0b2; text-align: center; padding: 15px; font-size: 14px; color: #555; }
+    #detailModal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 999; justify-content: center; align-items: center; }
+    #detailModal .content { background: white; padding: 25px; border-radius: 12px; text-align: center; max-width: 90%; box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    #detailModal button { padding: 10px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; }
+    #orderBtn { background: #25D366; color: white; }
+    #closeBtn { background: #ff6f00; color: white; margin-right: 10px; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="lorenzx_final_logo.gif" alt="Lorenz X Ops Logo" />
-  </header>
-  <main>
-    <h2>مرحبًا بك في متجر لورنز اكس وبس</h2>
-    <p>تم إدراج اللوغو الجديد بنجاح.</p>
-  </main>
+
+<div class="logo"><img src="lorenzx_final_logo.gif" alt="Lorenz X Ops Logo"></div>
+<header>Lorenz X Ops</header>
+<div class="intro">أهلاً بك في متجر Lorenz X Ops لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.</div>
+<div class="products">
+<div class='card'>
+      <img src='5usd.jpg' onclick="showDetails('5 دولار', 8500)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 5 دولار، قيمتها 8,500 دينار عراقي' target='_blank'>طلب باقة 5 دولار</a>
+    </div>
+<div class='card'>
+      <img src='10usd.jpg' onclick="showDetails('10 دولار', 17000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 10 دولار، قيمتها 17,000 دينار عراقي' target='_blank'>طلب باقة 10 دولار</a>
+    </div>
+<div class='card'>
+      <img src='15usd.jpg' onclick="showDetails('15 دولار', 25500)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 15 دولار، قيمتها 25,500 دينار عراقي' target='_blank'>طلب باقة 15 دولار</a>
+    </div>
+<div class='card'>
+      <img src='20usd.jpg' onclick="showDetails('20 دولار', 34000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 20 دولار، قيمتها 34,000 دينار عراقي' target='_blank'>طلب باقة 20 دولار</a>
+    </div>
+<div class='card'>
+      <img src='25usd.jpg' onclick="showDetails('25 دولار', 42500)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 25 دولار، قيمتها 42,500 دينار عراقي' target='_blank'>طلب باقة 25 دولار</a>
+    </div>
+<div class='card'>
+      <img src='30usd.jpg' onclick="showDetails('30 دولار', 51000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 30 دولار، قيمتها 51,000 دينار عراقي' target='_blank'>طلب باقة 30 دولار</a>
+    </div>
+<div class='card'>
+      <img src='40usd.jpg' onclick="showDetails('40 دولار', 68000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 40 دولار، قيمتها 68,000 دينار عراقي' target='_blank'>طلب باقة 40 دولار</a>
+    </div>
+<div class='card'>
+      <img src='50usd.jpg' onclick="showDetails('50 دولار', 85000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار، قيمتها 85,000 دينار عراقي' target='_blank'>طلب باقة 50 دولار</a>
+    </div>
+<div class='card'>
+      <img src='50usd_2.jpg' onclick="showDetails('50 دولار إضافية', 85000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار إضافية، قيمتها 85,000 دينار عراقي' target='_blank'>طلب باقة 50 دولار إضافية</a>
+    </div>
+<div class='card'>
+      <img src='100usd.jpg' onclick="showDetails('100 دولار', 170000)">
+      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 100 دولار، قيمتها 170,000 دينار عراقي' target='_blank'>طلب باقة 100 دولار</a>
+    </div>
+</div>
+
+<div class="contact">
+  <h3>معلومات الاتصال</h3>
+  <p>📞 07736578905</p>
+  <p>📧 lorenzxops@gmail.com</p>
+  <p>📍 بغداد - القاهرة</p>
+  <p><a href="https://wa.me/9647736578905">تواصل عبر واتساب</a></p>
+</div>
+<footer>© 2024 Lorenz X Ops - جميع الحقوق محفوظة</footer>
+
+<div id="detailModal">
+  <div class="content">
+    <h3 id="modalLabel"></h3>
+    <p id="modalPrice"></p>
+    <div>
+      <button id="orderBtn" onclick="orderNow()">طلب الآن عبر واتساب</button>
+      <button id="closeBtn" onclick="closeModal()">إغلاق</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentLabel = "", currentPrice = 0;
+function showDetails(label, price) {
+  currentLabel = label;
+  currentPrice = price;
+  document.getElementById("modalLabel").innerText = label;
+  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
+  document.getElementById("detailModal").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("detailModal").style.display = "none";
+}
+function orderNow() {
+  const msg = "أرغب بطلب بطاقة " + currentLabel + "، قيمتها " + currentPrice.toLocaleString() + " دينار عراقي";
+  window.open("https://wa.me/9647736578905?text=" + encodeURIComponent(msg), "_blank");
+}
+</script>
 </body>
 </html>

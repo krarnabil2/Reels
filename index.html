@@ -16,50 +16,33 @@
     }
     header {
       background: #ff6f00;
-      padding: 30px 20px;
+      padding: 25px 15px;
       text-align: center;
       color: white;
-      font-size: 32px;
+      font-size: 30px;
       font-weight: bold;
     }
-    .controls {
+    .logo {
       text-align: center;
-      margin: 20px 0;
+      margin: 15px 0 0;
     }
-    .controls button {
-      margin: 5px;
-      padding: 8px 14px;
-      font-family: Cairo, sans-serif;
-      font-weight: bold;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 6px;
-      border: none;
-      background-color: #ffcc80;
-      color: #333;
-    }
-    .controls button:hover {
-      background-color: #ffb74d;
+    .logo img {
+      max-width: 160px;
+      max-height: 90px;
     }
     .intro {
       background: #fff3e0;
       padding: 20px;
       text-align: center;
-      font-size: 18px;
-    }
-    .section-title {
-      text-align: center;
-      color: #ff6f00;
-      font-size: 24px;
-      margin-top: 30px;
+      font-size: 17px;
     }
     .products {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       max-width: 1000px;
       margin: 30px auto;
-      padding: 0 20px;
+      padding: 0 15px;
     }
     .card {
       background: white;
@@ -72,6 +55,7 @@
     .card img {
       width: 100%;
       display: block;
+      cursor: pointer;
     }
     .card a {
       text-align: center;
@@ -108,243 +92,97 @@
       font-size: 14px;
       color: #555;
     }
-    body.dark {
-      background: #121212;
-      color: #f1f1f1;
+    #detailModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
     }
-    body.dark header { background: #2c2c2c; }
-    body.dark .intro,
-    body.dark .contact,
-    body.dark footer { background: #1f1f1f; color: #ccc; }
-    body.dark .card { background: #222; }
-    body.dark .card a { background: #222; color: #ffa726; }
-    body.dark .card a:hover { background: #2a2a2a; color: #ffd180; }
+    #detailModal .content {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 90%;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    #detailModal button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #orderBtn {
+      background: #25D366;
+      color: white;
+    }
+    #closeBtn {
+      background: #ff6f00;
+      color: white;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
 
-<header id="site-title">Lorenz X Ops</header>
-
-<div class="controls">
-  <button class="lang-btn" data-lang="ar">🇮🇶 عربي</button>
-  <button class="lang-btn" data-lang="en">🇬🇧 English</button>
-  <button class="lang-btn" data-lang="ku">🇹🇯 کوردی</button>
-  <button id="themeToggle">🌙 الوضع الليلي</button>
+<div class="logo">
+  <img src="lorenzx_logo.png" alt="Lorenz X Ops Logo">
 </div>
+<header>Lorenz X Ops</header>
 
-<div class="intro" id="intro-text">
-  متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي.
-</div>
-
-<h2 class="section-title" id="section-title">باقات الرصيد</h2>
+<div class="intro">مرحباً بكم في متجر Lorenz X Ops لبيع بطاقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.</div>
 
 <div class="products">
-
-  <div class="card">
-    <img src="5usd.jpg" alt="5 دولار" onclick="showDetails('5 دولار', 8500)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 5 دولار، قيمتها 8500 دينار عراقي" target="_blank">طلب باقة 5 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="10usd.jpg" alt="10 دولار" onclick="showDetails('10 دولار', 17000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 10 دولار، قيمتها 17000 دينار عراقي" target="_blank">طلب باقة 10 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="15usd.jpg" alt="15 دولار" onclick="showDetails('15 دولار', 25500)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 15 دولار، قيمتها 25500 دينار عراقي" target="_blank">طلب باقة 15 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="20usd.jpg" alt="20 دولار" onclick="showDetails('20 دولار', 34000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 20 دولار، قيمتها 34000 دينار عراقي" target="_blank">طلب باقة 20 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="25usd.jpg" alt="25 دولار" onclick="showDetails('25 دولار', 42500)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 25 دولار، قيمتها 42500 دينار عراقي" target="_blank">طلب باقة 25 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="30usd.jpg" alt="30 دولار" onclick="showDetails('30 دولار', 51000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 30 دولار، قيمتها 51000 دينار عراقي" target="_blank">طلب باقة 30 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="40usd.jpg" alt="40 دولار" onclick="showDetails('40 دولار', 68000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 40 دولار، قيمتها 68000 دينار عراقي" target="_blank">طلب باقة 40 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="50usd.jpg" alt="50 دولار" onclick="showDetails('50 دولار', 85000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار، قيمتها 85000 دينار عراقي" target="_blank">طلب باقة 50 دولار</a>
-  </div>
-
-  <div class="card">
-    <img src="100usd.jpg" alt="100 دولار" onclick="showDetails('100 دولار', 170000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 100 دولار، قيمتها 170000 دينار عراقي" target="_blank">طلب باقة 100 دولار</a>
-  </div>
-
-  <div class="card"><img src="5usd.jpg"><a href="#">طلب باقة 5 دولار</a></div>
-  <div class="card"><img src="10usd.jpg"><a href="#">طلب باقة 10 دولار</a></div>
-  <div class="card"><img src="15usd.jpg"><a href="#">طلب باقة 15 دولار</a></div>
-  <div class="card"><img src="20usd.jpg"><a href="#">طلب باقة 20 دولار</a></div>
-  <div class="card"><img src="25usd.jpg"><a href="#">طلب باقة 25 دولار</a></div>
-  <div class="card"><img src="30usd.jpg"><a href="#">طلب باقة 30 دولار</a></div>
-  <div class="card"><img src="40usd.jpg"><a href="#">طلب باقة 40 دولار</a></div>
-  <div class="card"><img src="50usd.jpg"><a href="#">طلب باقة 50 دولار</a></div>
-  <div class="card"><img src="50usd_2.jpg"><a href="#">طلب باقة 50 دولار إضافية</a></div>
-  <div class="card"><img src="100usd.jpg"><a href="#">طلب باقة 100 دولار</a></div>
+  <div class="card"><img src="5usd.jpg" onclick="showDetails('5 دولار', 8500)"><a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 5 دولار، قيمتها 8,500 دينار عراقي" target="_blank">طلب باقة 5 دولار</a></div>
+  <div class="card"><img src="10usd.jpg" onclick="showDetails('10 دولار', 17000)"><a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 10 دولار، قيمتها 17,000 دينار عراقي" target="_blank">طلب باقة 10 دولار</a></div>
+  <div class="card"><img src="15usd.jpg" onclick="showDetails('15 دولار', 25500)"><a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 15 دولار، قيمتها 25,500 دينار عراقي" target="_blank">طلب باقة 15 دولار</a></div>
 </div>
 
 <div class="contact">
-  <h3 id="contact-title">معلومات الاتصال</h3>
+  <h3>معلومات الاتصال</h3>
   <p>📞 07736578905</p>
   <p>📧 lorenzxops@gmail.com</p>
   <p>📍 بغداد - القاهرة</p>
-  <p><a href="https://wa.me/9647736578905" target="_blank">تواصل على واتساب</a></p>
+  <p><a href="https://wa.me/9647736578905" target="_blank">تواصل عبر واتساب</a></p>
 </div>
 
 <footer>© 2024 Lorenz X Ops - جميع الحقوق محفوظة</footer>
 
-<script>
-const translations = {
-  ar: {
-    sitename: "لورينز اكس",
-    title: "باقات الرصيد",
-    intro: "متجر احترافي متخصص ببيع بطاقات الرصيد للترويج على وسائل التواصل الاجتماعي.",
-    contact: "معلومات الاتصال",
-    request: "طلب باقة"
-  },
-  en: {
-    sitename: "Lorenz X Ops",
-    title: "Credit Packages",
-    intro: "A professional store selling top-up packages for social media promotion.",
-    contact: "Contact Information",
-    request: "Order Package"
-  },
-  ku: {
-    sitename: "لورنز ئێکس",
-    title: "Pakêtakan",
-    intro: "فرۆشگای تایبەتی pakêt bo تۆڕە کۆمەڵایەتییەکان.",
-    contact: "زانیاری پەیوەندی",
-    request: "داواکردنی pakêt"
-  }
-};
-
-document.querySelectorAll(".lang-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const lang = btn.dataset.lang;
-    const t = translations[lang];
-    document.getElementById("site-title").innerText = t.sitename;
-    document.getElementById("intro-text").innerText = t.intro;
-    document.getElementById("section-title").innerText = t.title;
-    document.getElementById("contact-title").innerText = t.contact;
-    document.querySelectorAll(".card a").forEach(a => {
-      const num = a.innerText.match(/([0-9]+)/);
-      a.innerText = t.request + (num ? " " + num[1] + " دولار" : "");
-    });
-  });
-});
-
-document.getElementById("themeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  const isDark = document.body.classList.contains("dark");
-  document.getElementById("themeToggle").innerText = isDark ? "☀️ الوضع النهاري" : "🌙 الوضع الليلي";
-});
-</script>
-
-<script>
-
-function showDetails(label, price) {
-  const modal = document.getElementById("detailModal");
-  if (!modal) return;
-  currentLabel = label;
-  currentPrice = price;
-  document.getElementById("modalLabel").innerText = label;
-  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
-  modal.style.display = "flex";
-}
-
-  const modal = document.getElementById("detailModal");
-  document.getElementById("modalLabel").innerText = label;
-  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
-  modal.style.display = "flex";
-}
-
-function closeModal() {
-  const modal = document.getElementById("detailModal");
-  if (modal) modal.style.display = "none";
-}
-
-  document.getElementById("detailModal").style.display = "none";
-}
-</script>
-
-<div id="detailModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.5);z-index:1000;">
-  <div style="background:white;padding:30px 25px;border-radius:10px;max-width:90%;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
-    <h3 id="modalLabel" style="margin:0 0 10px 0;"></h3>
-    <p id="modalPrice" style="font-size:18px;color:#ff6f00;margin:10px 0 20px;"></p>
-    <button onclick="closeModal()" style="padding:10px 20px;background:#ff6f00;color:white;border:none;border-radius:5px;font-weight:bold;">إغلاق</button>
+<div id="detailModal">
+  <div class="content">
+    <h3 id="modalLabel"></h3>
+    <p id="modalPrice" style="color:#ff6f00;font-size:18px;"></p>
+    <div>
+      <button id="orderBtn" onclick="orderNow()">طلب الآن عبر واتساب</button>
+      <button id="closeBtn" onclick="closeModal()">إغلاق</button>
+    </div>
   </div>
 </div>
 
-
 <script>
-let currentLabel = "";
-let currentPrice = 0;
+let currentLabel = "", currentPrice = 0;
 
 function showDetails(label, price) {
-  const modal = document.getElementById("detailModal");
-  if (!modal) return;
   currentLabel = label;
   currentPrice = price;
   document.getElementById("modalLabel").innerText = label;
   document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
-  modal.style.display = "flex";
-}
-
-  currentLabel = label;
-  currentPrice = price;
-  const modal = document.getElementById("detailModal");
-  document.getElementById("modalLabel").innerText = label;
-  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
-  modal.style.display = "flex";
+  document.getElementById("detailModal").style.display = "flex";
 }
 
 function closeModal() {
-  const modal = document.getElementById("detailModal");
-  if (modal) modal.style.display = "none";
-}
-
   document.getElementById("detailModal").style.display = "none";
 }
+
 function orderNow() {
   const msg = `أرغب بطلب بطاقة ${currentLabel}، قيمتها ${currentPrice.toLocaleString()} دينار عراقي`;
   window.open(`https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`, "_blank");
 }
 </script>
-
-<div id="detailModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.5);z-index:1000;">
-  <div style="background:white;padding:30px 25px;border-radius:10px;max-width:90%;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
-    <h3 id="modalLabel" style="margin:0 0 10px 0;"></h3>
-    <p id="modalPrice" style="font-size:18px;color:#ff6f00;margin:10px 0 20px;"></p>
-    <button onclick="orderNow()" style="margin:10px auto 10px;background:#25D366;color:white;font-weight:bold;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;">طلب الآن عبر واتساب</button><br/>
-    <button onclick="closeModal()" style="padding:8px 20px;background:#ff6f00;color:white;border:none;border-radius:5px;font-weight:bold;">إغلاق</button>
-  </div>
-</div>
-
-
-<script>
-// Close modal if click outside content
-window.addEventListener("click", function(e) {
-  const modal = document.getElementById("detailModal");
-  const content = modal.querySelector("div");
-  if (e.target === modal) {
-    closeModal();
-  }
-});
-</script>
 </body>
-
 </html>

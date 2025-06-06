@@ -215,8 +215,8 @@
       const content = document.getElementById("modalContent");
       const dinar = price * 1700;
       
-    const msg = `تفاصيل الباقة:\n- الفئة: ${price} دولار\n- السعر بالدينار: ${dinar.toLocaleString()} دينار عراقي`;
-    content.innerHTML = msg.replace(/\n/g, "<br>");
+    const msg = `تفاصيل الباقة:\n- الفئة: $${price}\n- السعر بالدينار: ${dinar.toLocaleString()} دينار عراقي`;
+    content.innerHTML = msg.replace(/\n/g, "<br>").replace(/\$\{price\}/g, "$" + price);
     document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`;
     
       document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;

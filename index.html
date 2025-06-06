@@ -3,58 +3,61 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>متجر لورنز اكس وبس</title>
+  <title>Lorenz X Ops</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; margin: 0; background: #fff; text-align: center; }
-    .logo img { width: 200px; margin: 20px auto; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #fff; }
+    .logo { text-align: center; margin: 20px; }
+    .logo img { width: 160px; }
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
-    .card { border: 1px solid #ccc; padding: 10px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .card { background: #f9f9f9; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); padding: 10px; text-align: center; cursor: pointer; }
     .card img { width: 100%; border-radius: 8px; }
-    .card button { margin-top: 10px; padding: 10px 20px; background: orange; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .card button:hover { background: darkorange; }
+    .card p { margin-top: 10px; font-weight: bold; }
+    .card button { background: orange; color: #fff; border: none; padding: 10px 15px; border-radius: 6px; margin-top: 10px; }
+    .popup { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000; }
+    .popup-content { background: #fff; padding: 20px; border-radius: 10px; text-align: center; max-width: 400px; width: 90%; }
+    .popup-content h3 { margin-top: 0; }
+    .popup-content button { background: #25D366; color: white; border: none; padding: 10px 20px; margin-top: 15px; border-radius: 5px; font-size: 16px; }
+    .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; background: none; border: none; color: red; cursor: pointer; }
   </style>
 </head>
 <body>
   <div class="logo">
-    <img src="lorenzx_final_logo.gif" alt="Logo">
+    <img src="lorenzx_final_logo.gif" alt="Lorenz Logo">
   </div>
   <div class="cards">
-    <div class="card">
-      <img src="5usd.jpg" alt="5$">
-      <button>شراء باقة 5$</button>
-    </div>
-    <div class="card">
-      <img src="10usd.jpg" alt="10$">
-      <button>شراء باقة 10$</button>
-    </div>
-    <div class="card">
-      <img src="15usd.jpg" alt="15$">
-      <button>شراء باقة 15$</button>
-    </div>
-    <div class="card">
-      <img src="20usd.jpg" alt="20$">
-      <button>شراء باقة 20$</button>
-    </div>
-    <div class="card">
-      <img src="25usd.jpg" alt="25$">
-      <button>شراء باقة 25$</button>
-    </div>
-    <div class="card">
-      <img src="30usd.jpg" alt="30$">
-      <button>شراء باقة 30$</button>
-    </div>
-    <div class="card">
-      <img src="40usd.jpg" alt="40$">
-      <button>شراء باقة 40$</button>
-    </div>
-    <div class="card">
-      <img src="50usd.jpg" alt="50$">
-      <button>شراء باقة 50$</button>
-    </div>
-    <div class="card">
-      <img src="100usd.jpg" alt="100$">
-      <button>شراء باقة 100$</button>
+    <div class="card" onclick="showPopup(5, 8500)"><img src="5usd.jpg"><p>= 8,500 دينار عراقي</p><button>شراء باقة 5$</button></div>
+    <div class="card" onclick="showPopup(10, 17000)"><img src="10usd.jpg"><p>= 17,000 دينار عراقي</p><button>شراء باقة 10$</button></div>
+    <div class="card" onclick="showPopup(15, 25500)"><img src="15usd.jpg"><p>= 25,500 دينار عراقي</p><button>شراء باقة 15$</button></div>
+    <div class="card" onclick="showPopup(20, 34000)"><img src="20usd.jpg"><p>= 34,000 دينار عراقي</p><button>شراء باقة 20$</button></div>
+    <div class="card" onclick="showPopup(25, 42500)"><img src="25usd.jpg"><p>= 42,500 دينار عراقي</p><button>شراء باقة 25$</button></div>
+    <div class="card" onclick="showPopup(30, 51000)"><img src="30usd.jpg"><p>= 51,000 دينار عراقي</p><button>شراء باقة 30$</button></div>
+    <div class="card" onclick="showPopup(40, 68000)"><img src="40usd.jpg"><p>= 68,000 دينار عراقي</p><button>شراء باقة 40$</button></div>
+    <div class="card" onclick="showPopup(50, 85000)"><img src="50usd.jpg"><p>= 85,000 دينار عراقي</p><button>شراء باقة 50$</button></div>
+    <div class="card" onclick="showPopup(100, 170000)"><img src="100usd.jpg"><p>= 170,000 دينار عراقي</p><button>شراء باقة 100$</button></div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <h3>تفاصيل الباقة</h3>
+      <p id="popup-details"></p>
+      <button id="whatsapp-btn">شراء الآن</button>
     </div>
   </div>
+
+  <script>
+    function showPopup(usd, iqd) {
+      document.getElementById('popup-details').innerHTML = `باقة ${usd}$ = ${iqd.toLocaleString()} دينار`;
+      document.getElementById('whatsapp-btn').onclick = function() {
+        const msg = `أرغب بشراء باقة ${usd}$ بسعر ${iqd.toLocaleString()} دينار`;
+        window.open(`https://wa.me/9647736578906?text=${encodeURIComponent(msg)}`);
+      };
+      document.getElementById('popup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

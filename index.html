@@ -109,7 +109,7 @@
 <body>
 
 <header>
-  <img src="images/logo.gif" alt="Logo">
+  <img src="./images/logo.gif" alt="Logo">
 </header>
 
 <main class="grid" id="cards"></main>
@@ -149,7 +149,7 @@
     const div = document.createElement("div");
     div.className = "card";
     div.innerHTML = `
-      <img src="images/${p.price}.jpg" alt="باقة ${p.price}$">
+      <img src="./images/${p.price}.jpg" alt="باقة ${p.price}$">
       <h2>باقة ${p.price}$</h2>
       <p>${p.dinar.toLocaleString()} دينار عراقي</p>
       <button onclick="showDetails(${p.price}, ${p.dinar})">شراء باقة ${p.price}$</button>

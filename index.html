@@ -59,7 +59,7 @@
     }
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       padding: 20px;
       max-width: 1000px;
@@ -129,7 +129,7 @@
       <button onclick="setLang('ar')">🇮🇶 عربي</button>
       <button onclick="setLang('en')">🇺🇸 English</button>
       <button onclick="setLang('ku')">🇹🇯 کوردی</button>
-      <button onclick="toggleTheme()">🌓 الوضع الليلي/النهاري</button>
+      
     </div>
   </header>
 
@@ -151,15 +151,15 @@
 
   <script>
     const products = [
-      { price: 5, image: "file-WBYAYQf6hmCnENZ98g28BY" },
-      { price: 10, image: "file-U9mXo7YJLRTYexd1Jcbsvq" },
-      { price: 15, image: "file-UfC93cPQHRNxJXi5mVVtfu" },
-      { price: 20, image: "file-9N8sZSYkt3amdbqryvZA6w" },
-      { price: 25, image: "file-9QXU67ZgX6DbcKChPDjHWZ" },
-      { price: 30, image: "file-THrTtNv4TRbfaNoWt7E66P" },
-      { price: 40, image: "file-P9vehSzoZD5e4HRkVD3Rqw" },
-      { price: 50, image: "file-CWgbMdZFvjzYfWNTDD8hwz" },
-      { price: 100, image: "file-6UWxcyBvN63RRpEFskG5fA" }
+      { price: 5, image: "5usd.jpg" },
+      { price: 10, image: "10usd.jpg" },
+      { price: 15, image: "15usd.jpg" },
+      { price: 20, image: "20usd.jpg" },
+      { price: 25, image: "25usd.jpg" },
+      { price: 30, image: "30usd.jpg" },
+      { price: 40, image: "40usd.jpg" },
+      { price: 50, image: "50usd.jpg" },
+      { price: 100, image: "100usd.jpg" }
     ];
 
     const translations = {
@@ -214,7 +214,11 @@
       const modal = document.getElementById("modal");
       const content = document.getElementById("modalContent");
       const dinar = price * 1700;
-      content.innerHTML = `فئة البطاقة: ${price} دولار<br>السعر بالدينار: ${dinar.toLocaleString()} دينار`;
+      
+    const msg = `تفاصيل الباقة:\n- الفئة: ${price} دولار\n- السعر بالدينار: ${dinar.toLocaleString()} دينار عراقي`;
+    content.innerHTML = msg.replace(/\n/g, "<br>");
+    document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`;
+    
       document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;
       modal.style.display = "flex";
     }

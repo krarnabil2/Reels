@@ -2,116 +2,140 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lorenz X Ops</title>
   <style>
-    body { font-family: 'Cairo', sans-serif; background: #fffdf9; color: #222; margin: 0; }
-    header { background: #ff6f00; padding: 25px; text-align: center; color: white; font-size: 30px; font-weight: bold; }
-    .logo { text-align: center; padding-top: 15px; }
-    .logo img { max-width: 160px; max-height: 90px; }
-    .intro { background: #fff3e0; padding: 20px; text-align: center; font-size: 18px; }
-    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1100px; margin: 30px auto; padding: 0 15px; }
-    .card { background: white; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); overflow: hidden; }
-    .card img { width: 100%; display: block; cursor: pointer; }
-    .card a { display: block; padding: 14px; font-weight: bold; text-align: center; text-decoration: none; color: #ff6f00; background: white; border-top: 1px solid #eee; }
-    .card a:hover { background: #fff8f0; color: #e65100; }
-    .contact { background: #fff3e0; padding: 30px; text-align: center; font-size: 16px; }
-    .contact h3 { color: #e65100; }
-    .contact a { color: #e65100; text-decoration: none; font-weight: bold; }
-    footer { background: #ffe0b2; text-align: center; padding: 15px; font-size: 14px; color: #555; }
-    #detailModal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 999; justify-content: center; align-items: center; }
-    #detailModal .content { background: white; padding: 25px; border-radius: 12px; text-align: center; max-width: 90%; box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-    #detailModal button { padding: 10px 20px; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; }
-    #orderBtn { background: #25D366; color: white; }
-    #closeBtn { background: #ff6f00; color: white; margin-right: 10px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #ffffff;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      padding: 20px 10px;
+      background: linear-gradient(to bottom, #ffffff 60%, #ffe9cc 100%);
+    }
+    .logo {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+      aspect-ratio: 16/9;
+      margin: 0 auto;
+      display: block;
+      animation: fadeIn 2s ease-in-out;
+    }
+    .intro {
+      font-size: 1.2rem;
+      margin: 25px 20px;
+      line-height: 1.7;
+      color: #333;
+      animation: slideIn 1.5s ease-in-out;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .card-footer {
+      background: #fff7f0;
+      padding: 15px;
+      font-weight: bold;
+      color: #f97316;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
-</head>
+
+    <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3bdb2411db.mp3" preload="auto"></audio>
+    </head>
+    
 <body>
+  <header>
+    <img src="lorenzx_final_logo.gif" alt="Lorenz X Ops Logo" class="logo"/>
+  </header>
+  <section class="intro">
+    أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.
+  </section>
+  <section class="products">
+    <div class="card">
+      <img src="file-WBYAYQf6hmCnENZ98g28BY" alt="5$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 5 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-U9mXo7YJLRTYexd1Jcbsvq" alt="10$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 10 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-UfC93cPQHRNxJXi5mVVtfu" alt="15$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 15 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-9N8sZSYkt3amdbqryvZA6w" alt="20$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 20 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-9QXU67ZgX6DbcKChPDjHWZ" alt="25$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 25 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-THrTtNv4TRbfaNoWt7E66P" alt="30$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 30 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-P9vehSzoZD5e4HRkVD3Rqw" alt="40$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 40 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-CWgbMdZFvjzYfWNTDD8hwz" alt="50$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 50 دولار</div>
+    </div>
+    <div class="card">
+      <img src="file-6UWxcyBvN63RRpEFskG5fA" alt="100$"/>
+      <div class="card-footer" onclick="playClick(); openWhatsApp(this)">طلب باقة 100 دولار</div>
+    </div>
+  </section>
 
-<div class="logo"><img src="lorenzx_final_logo.gif" style="display:block; margin: 0 auto; width:100vw; height:95vh; object-fit:contain; display:block; margin: 0 auto;" alt=" Logo"></div>
-
-<div style="margin-top: 40px;"></div>
-<div class="intro">أهلاً بك في متجر  لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.</div>
-<div class="products">
-<div class='card'>
-      <img src='5usd.jpg' onclick="showDetails('5 دولار', 8500)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 5 دولار، قيمتها 8,500 دينار عراقي' target='_blank'>طلب باقة 5 دولار</a>
-    </div>
-<div class='card'>
-      <img src='10usd.jpg' onclick="showDetails('10 دولار', 17000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 10 دولار، قيمتها 17,000 دينار عراقي' target='_blank'>طلب باقة 10 دولار</a>
-    </div>
-<div class='card'>
-      <img src='15usd.jpg' onclick="showDetails('15 دولار', 25500)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 15 دولار، قيمتها 25,500 دينار عراقي' target='_blank'>طلب باقة 15 دولار</a>
-    </div>
-<div class='card'>
-      <img src='20usd.jpg' onclick="showDetails('20 دولار', 34000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 20 دولار، قيمتها 34,000 دينار عراقي' target='_blank'>طلب باقة 20 دولار</a>
-    </div>
-<div class='card'>
-      <img src='25usd.jpg' onclick="showDetails('25 دولار', 42500)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 25 دولار، قيمتها 42,500 دينار عراقي' target='_blank'>طلب باقة 25 دولار</a>
-    </div>
-<div class='card'>
-      <img src='30usd.jpg' onclick="showDetails('30 دولار', 51000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 30 دولار، قيمتها 51,000 دينار عراقي' target='_blank'>طلب باقة 30 دولار</a>
-    </div>
-<div class='card'>
-      <img src='40usd.jpg' onclick="showDetails('40 دولار', 68000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 40 دولار، قيمتها 68,000 دينار عراقي' target='_blank'>طلب باقة 40 دولار</a>
-    </div>
-<div class='card'>
-      <img src='50usd.jpg' onclick="showDetails('50 دولار', 85000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار، قيمتها 85,000 دينار عراقي' target='_blank'>طلب باقة 50 دولار</a>
-    </div>
-<div class='card'>
-      <img src='50usd_2.jpg' onclick="showDetails('50 دولار إضافية', 85000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار إضافية، قيمتها 85,000 دينار عراقي' target='_blank'>طلب باقة 50 دولار إضافية</a>
-    </div>
-<div class='card'>
-      <img src='100usd.jpg' onclick="showDetails('100 دولار', 170000)">
-      <a href='https://wa.me/9647736578905?text=أرغب بطلب بطاقة 100 دولار، قيمتها 170,000 دينار عراقي' target='_blank'>طلب باقة 100 دولار</a>
-    </div>
-</div>
-
-<div class="contact">
-  <h3>معلومات الاتصال</h3>
-  <p>📞 07736578905</p>
-  <p>📧 lorenzxops@gmail.com</p>
-  <p>📍 بغداد - القاهرة</p>
-  <p><a href="https://wa.me/9647736578905">تواصل عبر واتساب</a></p>
-</div>
-<footer>© 2024  - جميع الحقوق محفوظة</footer>
-
-<div id="detailModal">
-  <div class="content">
-    <h3 id="modalLabel"></h3>
-    <p id="modalPrice"></p>
-    <div>
-      <button id="orderBtn" onclick="orderNow()">طلب الآن عبر واتساب</button>
-      <button id="closeBtn" onclick="closeModal()">إغلاق</button>
-    </div>
-  </div>
-</div>
-
-<script>
-let currentLabel = "", currentPrice = 0;
-function showDetails(label, price) {
-  currentLabel = label;
-  currentPrice = price;
-  document.getElementById("modalLabel").innerText = label;
-  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
-  document.getElementById("detailModal").style.display = "flex";
-}
-function closeModal() {
-  document.getElementById("detailModal").style.display = "none";
-}
-function orderNow() {
-  const msg = "أرغب بطلب بطاقة " + currentLabel + "، قيمتها " + currentPrice.toLocaleString() + " دينار عراقي";
-  window.open("https://wa.me/9647736578905?text=" + encodeURIComponent(msg), "_blank");
-}
-</script>
-</body>
+    <script>
+      function playClick() {
+        const audio = document.getElementById("clickSound");
+        if (audio) audio.play();
+      }
+      function openWhatsApp(elem) {
+        const product = elem.innerText.trim();
+        const url = "https://wa.me/9647736578905?text=أرغب بطلب " + encodeURIComponent(product);
+        window.open(url, "_blank");
+      }
+    </script>
+    </body>
+    
 </html>

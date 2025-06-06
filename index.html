@@ -255,13 +255,28 @@ document.getElementById("themeToggle").addEventListener("click", () => {
 </script>
 
 <script>
+
 function showDetails(label, price) {
+  const modal = document.getElementById("detailModal");
+  if (!modal) return;
+  currentLabel = label;
+  currentPrice = price;
+  document.getElementById("modalLabel").innerText = label;
+  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
+  modal.style.display = "flex";
+}
+
   const modal = document.getElementById("detailModal");
   document.getElementById("modalLabel").innerText = label;
   document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
   modal.style.display = "flex";
 }
+
 function closeModal() {
+  const modal = document.getElementById("detailModal");
+  if (modal) modal.style.display = "none";
+}
+
   document.getElementById("detailModal").style.display = "none";
 }
 </script>
@@ -278,7 +293,17 @@ function closeModal() {
 <script>
 let currentLabel = "";
 let currentPrice = 0;
+
 function showDetails(label, price) {
+  const modal = document.getElementById("detailModal");
+  if (!modal) return;
+  currentLabel = label;
+  currentPrice = price;
+  document.getElementById("modalLabel").innerText = label;
+  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
+  modal.style.display = "flex";
+}
+
   currentLabel = label;
   currentPrice = price;
   const modal = document.getElementById("detailModal");
@@ -286,7 +311,12 @@ function showDetails(label, price) {
   document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
   modal.style.display = "flex";
 }
+
 function closeModal() {
+  const modal = document.getElementById("detailModal");
+  if (modal) modal.style.display = "none";
+}
+
   document.getElementById("detailModal").style.display = "none";
 }
 function orderNow() {
@@ -304,5 +334,17 @@ function orderNow() {
   </div>
 </div>
 
+
+<script>
+// Close modal if click outside content
+window.addEventListener("click", function(e) {
+  const modal = document.getElementById("detailModal");
+  const content = modal.querySelector("div");
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+</script>
 </body>
+
 </html>

@@ -85,7 +85,16 @@
       }
     }
   </style>
-</head>
+
+    <style>
+      [data-theme='dark'] {
+        --bg: #121212;
+        --text: #f0f0f0;
+        --accent: #facc15;
+      }
+    </style>
+    </head>
+    
 <body>
   <header>
     <img src="lorenzx_final_logo.gif" class="logo" />
@@ -171,7 +180,26 @@
       window.open(link, "_blank");
     }
 
+    
     function toggleTheme() {
+      const html = document.documentElement;
+      if (html.getAttribute("data-theme") === "dark") {
+        html.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        html.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    }
+
+    // Apply saved theme on load
+    window.onload = () => {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    }
+    
       if (document.documentElement.hasAttribute("data-theme")) {
         document.documentElement.removeAttribute("data-theme");
       } else {
@@ -199,7 +227,7 @@
         const btn = document.getElementById('whatsBtn');
         const dinar = price * 1700;
         content.innerText = `فئة البطاقة: ${price} دولار\nالسعر بالدينار العراقي: ${dinar.toLocaleString()} دينار`;
-        btn.href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار`;
+        btn.href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;
         modal.style.display = 'flex';
       }
     </script>

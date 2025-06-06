@@ -181,11 +181,6 @@
   </div>
 
   <div class="card">
-    <img src="50usd_2.jpg" alt="50 دولار إضافية" onclick="showDetails('50 دولار إضافية', 85000)">
-    <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 50 دولار إضافية، قيمتها 85000 دينار عراقي" target="_blank">طلب باقة 50 دولار إضافية</a>
-  </div>
-
-  <div class="card">
     <img src="100usd.jpg" alt="100 دولار" onclick="showDetails('100 دولار', 170000)">
     <a href="https://wa.me/9647736578905?text=أرغب بطلب بطاقة 100 دولار، قيمتها 170000 دينار عراقي" target="_blank">طلب باقة 100 دولار</a>
   </div>
@@ -271,11 +266,41 @@ function closeModal() {
 }
 </script>
 
-<div id="detailModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;justify-content:center;align-items:center;">
+<div id="detailModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.5);z-index:1000;">
   <div style="background:white;padding:25px 20px;border-radius:10px;max-width:90%;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
     <h3 id="modalLabel" style="margin:0 0 10px 0;"></h3>
     <p id="modalPrice" style="font-size:18px;color:#ff6f00;margin:10px 0 20px;"></p>
     <button onclick="closeModal()" style="padding:10px 20px;background:#ff6f00;color:white;border:none;border-radius:5px;font-weight:bold;">إغلاق</button>
+  </div>
+</div>
+
+
+<script>
+let currentLabel = "";
+let currentPrice = 0;
+function showDetails(label, price) {
+  currentLabel = label;
+  currentPrice = price;
+  const modal = document.getElementById("detailModal");
+  document.getElementById("modalLabel").innerText = label;
+  document.getElementById("modalPrice").innerText = price.toLocaleString() + " دينار عراقي";
+  modal.style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("detailModal").style.display = "none";
+}
+function orderNow() {
+  const msg = `أرغب بطلب بطاقة ${currentLabel}، قيمتها ${currentPrice.toLocaleString()} دينار عراقي`;
+  window.open(`https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`, "_blank");
+}
+</script>
+
+<div id="detailModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.5);z-index:1000;">
+  <div style="background:white;padding:25px 20px;border-radius:10px;max-width:90%;text-align:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
+    <h3 id="modalLabel" style="margin:0 0 10px 0;"></h3>
+    <p id="modalPrice" style="font-size:18px;color:#ff6f00;margin:10px 0 20px;"></p>
+    <button onclick="orderNow()" style="margin:10px auto 10px;background:#25D366;color:white;font-weight:bold;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;">طلب الآن عبر واتساب</button><br/>
+    <button onclick="closeModal()" style="padding:8px 20px;background:#ff6f00;color:white;border:none;border-radius:5px;font-weight:bold;">إغلاق</button>
   </div>
 </div>
 

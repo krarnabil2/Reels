@@ -2,235 +2,59 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lorenz X Ops</title>
+  <meta charset="UTF-8">
+  <title>متجر لورنز اكس وبس</title>
   <style>
-    :root {
-      --bg: #ffffff;
-      --text: #222;
-      --accent: #f97316;
-    }
-    [data-theme='dark'] {
-      --bg: #121212;
-      --text: #f0f0f0;
-      --accent: #facc15;
-    }
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-    }
-    body {
-      background: var(--bg);
-      color: var(--text);
-    }
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-    .logo {
-      width: 100%;
-      max-width: 700px;
-      height: auto;
-      aspect-ratio: 16/9;
-      display: block;
-      margin: auto;
-    }
-    .controls {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .controls button {
-      margin: 5px;
-      padding: 10px 14px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      background: white;
-      color: var(--accent);
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .intro {
-      text-align: center;
-      margin: 20px;
-      font-size: 1.1rem;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      cursor: pointer;
-    }
-    .card-footer {
-      background: #fff7f0;
-      padding: 12px;
-      font-weight: bold;
-      color: var(--accent);
-      text-align: center;
-      cursor: pointer;
-    }
-    #modal {
-      display: none;
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    #modal .content {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 90%;
-      position: relative;
-    }
-    #modal .close {
-      position: absolute;
-      top: 10px; right: 15px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    #modal a {
-      display: inline-block;
-      margin-top: 15px;
-      background: #25D366;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    body { font-family: sans-serif; margin: 0; background: #fff; text-align: center; }
+    .logo img { width: 200px; margin: 20px auto; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px; }
+    .card { border: 1px solid #ccc; padding: 10px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .card img { width: 100%; border-radius: 8px; }
+    .card button { margin-top: 10px; padding: 10px 20px; background: orange; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .card button:hover { background: darkorange; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="lorenzx_final_logo.gif" class="logo" alt="Lorenz X Ops" />
-    <div class="controls">
-      <button onclick="setLang('ar')">🇮🇶 عربي</button>
-      <button onclick="setLang('en')">🇺🇸 English</button>
-      <button onclick="setLang('ku')">🇹🇯 کوردی</button>
-      
+  <div class="logo">
+    <img src="lorenzx_final_logo.gif" alt="Logo">
+  </div>
+  <div class="cards">
+    <div class="card">
+      <img src="5usd.jpg" alt="5$">
+      <button>شراء باقة 5$</button>
     </div>
-  </header>
-
-  <section class="intro" id="introText">
-    أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.
-  </section>
-
-  <section class="products" id="productsGrid"></section>
-
-  <div id="modal">
-    <div class="content">
-      <span class="close" onclick="closeModal()">×</span>
-      <div id="modalContent"></div>
-      <a id="whatsBtn" href="#" target="_blank">شراء الآن</a>
+    <div class="card">
+      <img src="10usd.jpg" alt="10$">
+      <button>شراء باقة 10$</button>
+    </div>
+    <div class="card">
+      <img src="15usd.jpg" alt="15$">
+      <button>شراء باقة 15$</button>
+    </div>
+    <div class="card">
+      <img src="20usd.jpg" alt="20$">
+      <button>شراء باقة 20$</button>
+    </div>
+    <div class="card">
+      <img src="25usd.jpg" alt="25$">
+      <button>شراء باقة 25$</button>
+    </div>
+    <div class="card">
+      <img src="30usd.jpg" alt="30$">
+      <button>شراء باقة 30$</button>
+    </div>
+    <div class="card">
+      <img src="40usd.jpg" alt="40$">
+      <button>شراء باقة 40$</button>
+    </div>
+    <div class="card">
+      <img src="50usd.jpg" alt="50$">
+      <button>شراء باقة 50$</button>
+    </div>
+    <div class="card">
+      <img src="100usd.jpg" alt="100$">
+      <button>شراء باقة 100$</button>
     </div>
   </div>
-
-  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3bdb2411db.mp3" preload="auto"></audio>
-
-  <script>
-    const products = [
-      { price: 5, image: "5usd.jpg" },
-      { price: 10, image: "10usd.jpg" },
-      { price: 15, image: "15usd.jpg" },
-      { price: 20, image: "20usd.jpg" },
-      { price: 25, image: "25usd.jpg" },
-      { price: 30, image: "30usd.jpg" },
-      { price: 40, image: "40usd.jpg" },
-      { price: 50, image: "50usd.jpg" },
-      { price: 100, image: "100usd.jpg" }
-    ];
-
-    const translations = {
-      ar: {
-        intro: "أهلاً بك في متجر لورنز اكس وبس لبيع باقات الرصيد الخاصة بالترويج على وسائل التواصل الاجتماعي.",
-        order: "طلب باقة "
-      },
-      en: {
-        intro: "Welcome to Lorenz X Ops store for social media promotion packages.",
-        order: "Order $"
-      },
-      ku: {
-        intro: "بەخێربێیت بۆ فرۆشگای لۆرێنز بۆ پاکێجەکانی تەنسیق.",
-        order: "داواکردنی "
-      }
-    };
-    let currentLang = "ar";
-
-    window.addEventListener("DOMContentLoaded", () => {
-      setLang("ar");
-    });
-
-    function setLang(lang) {
-      currentLang = lang;
-      document.getElementById("introText").innerText = translations[lang].intro;
-      const grid = document.getElementById("productsGrid");
-      grid.innerHTML = "";
-      products.forEach(p => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <img src="${p.image}" onclick="showDetails(${p.price})" />
-          <div class="card-footer">${translations[lang].order} ${p.price} دولار</div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      if (html.getAttribute("data-theme") === "dark") {
-        html.removeAttribute("data-theme");
-        localStorage.setItem("theme", "light");
-      } else {
-        html.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-      }
-    }
-
-    function showDetails(price) {
-      document.getElementById("clickSound").play();
-      const modal = document.getElementById("modal");
-      const content = document.getElementById("modalContent");
-      const dinar = price * 1700;
-      
-    const msg = `تفاصيل الباقة:\n- الفئة: $${price}\n- السعر بالدينار: ${dinar.toLocaleString()} دينار عراقي`;
-    content.innerHTML = msg.replace(/\n/g, "<br>").replace(/\$\{price\}/g, "$" + price);
-    document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=${encodeURIComponent(msg)}`;
-    
-      document.getElementById("whatsBtn").href = `https://wa.me/9647736578905?text=أرغب بطلب باقة ${price} دولار، بسعر ${dinar.toLocaleString()} دينار عراقي`;
-      modal.style.display = "flex";
-    }
-
-    function closeModal() {
-      document.getElementById("modal").style.display = "none";
-    }
-
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-    }
-  </script>
 </body>
 </html>

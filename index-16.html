@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="السيرة الذاتية - كرار نبيل أكرم | Karar Nabil Akram CV">
+<title>السيرة الذاتية | كرار نبيل أكرم</title>
+<style>
+:root{
+  --navy:#17324d; --navy2:#244b6d; --ink:#17212b; --muted:#637282;
+  --line:#d9e0e6; --paper:#fff; --bg:#eef2f5; --soft:#f5f7f9;
+}
+*{box-sizing:border-box}
+.cv{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+a,button{-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:Arial,"Tahoma",sans-serif;line-height:1.7;
+}
+.toolbar{
+  position:sticky;top:0;z-index:20;display:flex;justify-content:center;gap:10px;
+  padding:12px;background:rgba(238,242,245,.96);border-bottom:1px solid #dce3e9;
+}
+button{
+  border:0;border-radius:7px;padding:10px 16px;font-size:14px;font-weight:700;
+  cursor:pointer;background:var(--navy);color:white;
+}
+button.secondary{background:white;color:var(--navy);border:1px solid var(--navy)}
+.cv{
+  width:min(960px,calc(100% - 28px));margin:24px auto 40px;background:var(--paper);
+  box-shadow:0 8px 28px rgba(24,45,66,.10);min-height:1120px;
+}
+.header{
+  background:var(--navy);color:white;padding:42px 48px 34px;
+  display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;
+}
+.header h1{margin:0;font-size:35px;letter-spacing:.2px}
+.header .role{margin-top:7px;font-size:17px;color:#dce8f2}
+.contact{text-align:left;font-size:13px;line-height:1.9;direction:ltr}
+.contact a{color:white;text-decoration:none}
+.contact-phone{display:flex;align-items:center;gap:7px;justify-content:flex-start;flex-wrap:wrap}
+.contact-actions{display:inline-flex;gap:6px}
+.contact-action{display:inline-flex;align-items:center;justify-content:center;padding:3px 8px;border:1px solid rgba(255,255,255,.65);border-radius:5px;font-size:10px;font-weight:700;color:white!important;line-height:1.5}
+body:not(.english) .contact-phone{direction:rtl}
+body.english .contact-phone{justify-content:flex-end}
+.content{display:grid;grid-template-columns:31% 69%}
+.sidebar{background:var(--soft);padding:34px 28px;border-left:1px solid var(--line)}
+.main{padding:34px 38px}
+.section{margin-bottom:30px;break-inside:avoid}
+h2{
+  color:var(--navy);font-size:17px;margin:0 0 14px;padding-bottom:7px;
+  border-bottom:2px solid var(--navy);letter-spacing:.2px;
+}
+p{margin:0 0 10px}
+ul{margin:8px 0;padding-inline-start:21px}
+li{margin:7px 0}
+.meta{font-size:13px;color:var(--muted)}
+.item{margin-bottom:21px}
+.item h3{font-size:15px;margin:0 0 4px;color:#20364a}
+.skill{
+  display:inline-block;background:#e6edf3;color:#243d54;padding:5px 9px;
+  margin:3px 1px;border-radius:4px;font-size:12px;
+}
+.lang-row{margin:11px 0}
+.lang-row strong{display:block;font-size:14px}
+.lang-row span{font-size:12px;color:var(--muted)}
+.en{display:none}
+body.english{direction:ltr}
+body.english .ar{display:none}
+body.english .en{display:block}
+body.english .sidebar{border-left:0;border-right:1px solid var(--line)}
+body.english .contact{text-align:right}
+.note{font-size:11px;color:#7a8792;margin-top:22px}
+@media(max-width:700px){
+  .cv{width:100%;margin:0;box-shadow:none}
+  .toolbar{position:relative;flex-wrap:wrap}
+  .header{padding:30px 22px;grid-template-columns:1fr}
+  .header h1{font-size:29px}.contact{text-align:right!important}
+  .content{grid-template-columns:1fr}
+  .sidebar{border:0!important;padding:26px 22px}
+  .main{padding:26px 22px}
+}
+@page{size:A4;margin:0}
+@media print{
+  body{background:white}
+  .toolbar,.no-print{display:none!important}
+  .cv{width:210mm;min-height:297mm;margin:0;box-shadow:none}
+  .header{padding:15mm 13mm 10mm}
+  .content{grid-template-columns:32% 68%}
+  .sidebar{padding:10mm 8mm}
+  .main{padding:10mm 10mm}
+  .section{margin-bottom:7mm}
+  h2{font-size:14px;margin-bottom:3mm}
+  p,li{font-size:11px;line-height:1.55}
+  .header h1{font-size:28px}
+  .header .role{font-size:14px}
+  .contact{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="langBtn" onclick="toggleLanguage()">English</button>
+  <button onclick="printCV()">طباعة / Print</button>
+  <button class="secondary" onclick="savePDF()">تنزيل PDF / Save PDF</button>
+</div>
+
+<article class="cv">
+  <header class="header">
+    <div>
+      <div class="ar">
+        <h1>كرار نبيل أكرم</h1>
+        <div class="role">مبيعات • مندوب • إنشاء مواقع ويب بأدوات الذكاء الاصطناعي</div>
+      </div>
+      <div class="en">
+        <h1>Karar Nabil Akram</h1>
+        <div class="role">Sales • Representative • AI-Assisted Web Creation</div>
+      </div>
+    </div>
+    <div class="contact">
+      <div>Baghdad, Iraq</div>
+      <div class="contact-phone">
+        <span>07736578905</span>
+        <span class="contact-actions no-print">
+          <a class="contact-action ar" href="tel:+9647736578905" aria-label="اتصال مباشر">اتصال</a>
+          <a class="contact-action ar" href="https://wa.me/9647736578905" target="_blank" rel="noopener" aria-label="واتساب">واتساب</a>
+          <a class="contact-action en" href="tel:+9647736578905" aria-label="Call">Call</a>
+          <a class="contact-action en" href="https://wa.me/9647736578905" target="_blank" rel="noopener" aria-label="WhatsApp">WhatsApp</a>
+        </span>
+      </div>
+      <div><a href="mailto:hsabbesnes@gmail.com">hsabbesnes@gmail.com</a></div>
+    </div>
+  </header>
+
+  <div class="content">
+    <aside class="sidebar">
+      <section class="section">
+        <div class="ar"><h2>المعلومات الشخصية</h2>
+          <p><strong>تاريخ الميلاد:</strong><br>12 / 10 / 2003</p>
+          <p><strong>السكن:</strong><br>بغداد – القاهرة</p>
+        </div>
+        <div class="en"><h2>Personal Details</h2>
+          <p><strong>Date of Birth:</strong><br>12 October 2003</p>
+          <p><strong>Location:</strong><br>Al-Qahira, Baghdad</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="ar"><h2>المهارات</h2>
+          <span class="skill">إنشاء مواقع ويب</span>
+          <span class="skill">أدوات الذكاء الاصطناعي</span>
+          <span class="skill">المبيعات</span>
+          <span class="skill">المبيعات الإلكترونية</span>
+          <span class="skill">التعامل مع الزبائن</span>
+          <span class="skill">العمل الميداني</span>
+        </div>
+        <div class="en"><h2>Skills</h2>
+          <span class="skill">Website Creation</span>
+          <span class="skill">AI Tools</span>
+          <span class="skill">Sales</span>
+          <span class="skill">Online Sales</span>
+          <span class="skill">Customer Communication</span>
+          <span class="skill">Field Work</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="ar"><h2>اللغات</h2>
+          <div class="lang-row"><strong>العربية</strong><span>اللغة الأم</span></div>
+          <div class="lang-row"><strong>الإنجليزية</strong><span>مستوى ضعيف</span></div>
+        </div>
+        <div class="en"><h2>Languages</h2>
+          <div class="lang-row"><strong>Arabic</strong><span>Native</span></div>
+          <div class="lang-row"><strong>English</strong><span>Weak</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="ar"><h2>التعليم</h2>
+          <p><strong>المرحلة الخامسة الإعدادية</strong></p>
+        </div>
+        <div class="en"><h2>Education</h2>
+          <p><strong>Fifth Preparatory Grade</strong></p>
+        </div>
+      </section>
+    </aside>
+
+    <main class="main">
+      <section class="section">
+        <div class="ar">
+          <h2>نبذة مهنية</h2>
+          <p>لدي خبرة عملية في المبيعات والتعامل مع الزبائن، سواء في المبيعات الإلكترونية أو داخل بيئة مكتبية، مع قابلية للعمل كمندوب ميداني باستخدام سيارة حمل كيا أو سيارة خصوصي. كما أمتلك خبرة في إنشاء وتطوير مواقع الويب بالاستفادة من أدوات الذكاء الاصطناعي، وأسعى للعمل ضمن بيئة مهنية تتيح لي تطوير خبرتي.</p>
+        </div>
+        <div class="en">
+          <h2>Professional Profile</h2>
+          <p>Practical experience in sales and customer communication, including online sales and office-based sales. Able to work as a field representative using a Kia light cargo vehicle or a private car. Experienced in creating and developing websites with the support of AI tools, with a strong interest in developing my professional skills in a structured work environment.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="ar">
+          <h2>الخبرات والقدرات العملية</h2>
+          <div class="item">
+            <h3>المبيعات والتعامل مع الزبائن</h3>
+            <ul>
+              <li>خبرة في البيع والتواصل مع الزبائن عبر الإنترنت.</li>
+              <li>القدرة على العمل في المبيعات داخل المكتب والتعامل المباشر مع العملاء.</li>
+              <li>متابعة احتياجات الزبون وتوضيح المنتجات أو الخدمات بطريقة واضحة.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>العمل كمندوب</h3>
+            <ul>
+              <li>قابلية للعمل كمندوب ميداني والتنقل حسب متطلبات العمل.</li>
+              <li>إمكانية العمل بسيارة حمل كيا أو سيارة خصوصي.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>إنشاء مواقع الويب باستخدام الذكاء الاصطناعي</h3>
+            <ul>
+              <li>إنشاء وتطوير مواقع ويب بالاستفادة من أدوات الذكاء الاصطناعي.</li>
+              <li>القدرة على تحويل متطلبات العمل إلى صفحات ومواقع إلكترونية عملية.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="en">
+          <h2>Experience & Capabilities</h2>
+          <div class="item">
+            <h3>Sales & Customer Service</h3>
+            <ul>
+              <li>Experience in online sales and communicating with customers.</li>
+              <li>Ability to work in office-based sales and deal directly with clients.</li>
+              <li>Ability to understand customer needs and explain products or services clearly.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>Field Representative</h3>
+            <ul>
+              <li>Available for field representative duties and work-related travel.</li>
+              <li>Able to work using a Kia light cargo vehicle or a private car.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <h3>AI-Assisted Website Creation</h3>
+            <ul>
+              <li>Creating and developing websites with the support of artificial intelligence tools.</li>
+              <li>Ability to turn business requirements into practical web pages and websites.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="ar"><h2>الهدف الوظيفي</h2>
+          <p>الحصول على فرصة عمل أستفيد فيها من خبرتي في المبيعات، العمل الميداني والتقنيات الحديثة، مع تطوير مهاراتي والمساهمة بفاعلية في تحقيق أهداف جهة العمل.</p>
+        </div>
+        <div class="en"><h2>Career Objective</h2>
+          <p>To obtain a professional opportunity where I can apply my experience in sales, field work and modern technology, while developing my skills and contributing effectively to the organization’s goals.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+</article>
+
+<script>
+let english=false;
+function toggleLanguage(){
+  english=!english;
+  document.body.classList.toggle('english',english);
+  document.documentElement.lang=english?'en':'ar';
+  document.documentElement.dir=english?'ltr':'rtl';
+  document.getElementById('langBtn').textContent=english?'العربية':'English';
+}
+function printCV(){ window.print(); }
+function savePDF(){
+  alert(english
+    ? 'In the print window, choose “Save as PDF” as the printer/destination, then save.'
+    : 'من نافذة الطباعة اختر «حفظ كملف PDF / Save as PDF» كطابعة أو وجهة، ثم اضغط حفظ.');
+  window.print();
+}
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('selectstart', e => {
+  if (!e.target.closest('button,a')) e.preventDefault();
+});
+</script>
+</body>
+</html>
